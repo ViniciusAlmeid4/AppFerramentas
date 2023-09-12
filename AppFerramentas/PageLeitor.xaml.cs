@@ -25,5 +25,15 @@ namespace AppFerramentas
             
             });
         }
+
+        private void btCadastrarFerramenta_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new PageFerramentasCadastro());
+        }
+
+        private void btVerificarFerramenta_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

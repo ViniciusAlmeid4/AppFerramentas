@@ -14,5 +14,15 @@ namespace AppFerramentas
         {
             InitializeComponent();
         }
+
+        private void btnLeitor_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new PageLeitor());
+        }
+
+        private void btnListaFerramentas_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new PageFerramentas());
+        }
     }
 }
