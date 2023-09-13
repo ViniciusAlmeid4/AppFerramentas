@@ -2,11 +2,25 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppFerramentas.PageFuncionario">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Meus Dados" FontAttributes="Bold" TextColor="White" FontSize="Large"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Margin="60" Orientation="Vertical">
+            <StackLayout VerticalOptions="Start"  HorizontalOptions="Center">
+                <Label Text="Dados da caixa atual" FontSize="Large" FontAttributes="Bold"/>
+            </StackLayout>
+            <StackLayout Margin="40" VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
+                <Label x:Name="NomeUsuario" Text="@" FontAttributes="Bold" FontSize="Medium" Margin="0,0,0,50"/>
+                <Label x:Name="Setor" Text="@" FontAttributes="Bold" FontSize="Medium" Margin="0,0,0,50"/>
+                <Label x:Name="Gerente" Text="@" FontAttributes="Bold" FontSize="Medium" Margin="0,0,0,50"/>
+                <Label x:Name="Cargo" Text="@" FontAttributes="Bold" FontSize="Medium" Margin="0,0,0,50"/>
+            </StackLayout>
+            <StackLayout VerticalOptions="End">
+                <Button HorizontalOptions="CenterAndExpand" Text="Atualizar"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

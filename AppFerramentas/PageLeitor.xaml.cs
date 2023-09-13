@@ -17,18 +17,44 @@ namespace AppFerramentas
             InitializeComponent();
         }
 
+        /*
+         function async {
+             var dados = new Pessoa{
+                nome_funcionario = nome.text
+                ...
+            }
+            var enviar = new PageFuncionario();
+            enviar.BindingContext = dados;
+            await Navigation.PushAsync(enviar);
+        }
+         */
+
         private void ZXingScannerView_OnScanResult(ZXing.Result result)
         {
             Device.BeginInvokeOnMainThread(() => {
 
-                scanResultText.Text = result.Text + " (type: " + result.BarcodeFormat.ToString() + ")";
-            
+                /*
+                if (result.Text != "")
+                {
+                    scanResultText.Text = result.Text + " (type: " + result.BarcodeFormat.ToString() + ")";
+                    btCadastrarFerramenta.IsEnabled = true;
+                    btCadastrarFerramenta.BackgroundColor = Color.Gray;
+                }
+                else
+                {
+                    btCadastrarFerramenta.IsEnabled = false;
+                    btCadastrarFerramenta.BackgroundColor = Color.BlanchedAlmond;
+                }
+                
+                */
             });
         }
 
         private void btCadastrarFerramenta_Clicked(object sender, EventArgs e)
         {
+
             Navigation.PushAsync(new PageFerramentasCadastro());
+
         }
 
         private void btVerificarFerramenta_Clicked(object sender, EventArgs e)

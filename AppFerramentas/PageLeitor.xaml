@@ -2,14 +2,17 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppFerramentas.PageLeitor" xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms">
-    
-    <StackLayout>
-        <Frame BackgroundColor="#f5a74e" Padding="14" CornerRadius="0">
-            <Label Text="Scanner - Código de Barras" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-        </Frame>
-        <Label x:Name="scanResultText"/>
-        <zxing:ZXingScannerView IsScanning="True" OnScanResult="ZXingScannerView_OnScanResult"/>
-        <Button x:Name="btCadastrarFerramenta" Text="Cadastrar" Clicked="btCadastrarFerramenta_Clicked"></Button>
-        <Button x:Name="btVerificarFerramenta" Text="Verificar" Clicked="btVerificarFerramenta_Clicked" Margin="0,0,0,10"></Button>
-    </StackLayout>
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Scanner - Código de Barras" FontAttributes="Bold" TextColor="White" FontSize="Large"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="scanResultText"/>
+            <zxing:ZXingScannerView IsScanning="True" OnScanResult="ZXingScannerView_OnScanResult"/>
+            <Button x:Name="btCadastrarFerramenta" Text="Cadastrar" Clicked="btCadastrarFerramenta_Clicked"></Button>
+            <Button x:Name="btVerificarFerramenta" Text="Verificar" Clicked="btVerificarFerramenta_Clicked" Margin="0,0,0,10"></Button>
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>
