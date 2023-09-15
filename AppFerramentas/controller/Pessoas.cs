@@ -39,6 +39,7 @@ namespace AppFerramentas.controller
                                 setor = reader.GetString(2),
                                 gerente = reader.GetString(3),
                                 cargo = reader.GetString(4),
+                                codigo = reader.GetString(5)
 
                             };
 
@@ -55,9 +56,9 @@ namespace AppFerramentas.controller
             }
         }
 
-        public static void InserirFuncionario(string nome_funcionario, string setor, string gerente, string cargo)
+        public static void InserirFuncionario(string nome_funcionario, string setor, string gerente, string cargo, string codigo)
         {
-            string sql = "INSERT INTO funcionario(nome_funcionario, setor, gerente, cargo) VALUES (@nome_funcionario, @setor, @gerente, @cargo)";
+            string sql = "INSERT INTO funcionario(nome_funcionario, setor, gerente, cargo, codigo) VALUES (@nome_funcionario, @setor, @gerente, @cargo, @codigo)";
 
             using (MySqlConnection con = new MySqlConnection(conn))
             {
@@ -69,6 +70,7 @@ namespace AppFerramentas.controller
                     cmd.Parameters.Add("@setor", MySqlDbType.VarChar).Value = setor;
                     cmd.Parameters.Add("@gerente", MySqlDbType.VarChar).Value = gerente;
                     cmd.Parameters.Add("@cargo", MySqlDbType.VarChar).Value = cargo;
+                    cmd.Parameters.Add("@codigo", MySqlDbType.VarChar).Value = codigo;
                     cmd.CommandType = CommandType.Text;
                     cmd.ExecuteNonQuery();
                 }
@@ -76,9 +78,9 @@ namespace AppFerramentas.controller
                 con.Close();
             }
         }
-        public static void ExcluirFuncionario(Ferramenta ferramenta)
+        public static void ExcluirFuncionario(Pessoa func)
         {
-            string sql = "DELETE FROM ferramenta WHERE id_ferramenta=@id_ferramenta";
+            string sql = "DELETE FROM funcionario WHERE id_funcionario=@id_funcionario";
 
             try
             {
@@ -88,7 +90,7 @@ namespace AppFerramentas.controller
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, con))
                     {
-                        cmd.Parameters.Add("@id_ferramenta", MySqlDbType.Int32).Value = ferramenta.id_ferramenta;
+                        cmd.Parameters.Add("@id_funcionario", MySqlDbType.Int32).Value = func.id_funcionario;
                         cmd.CommandType = CommandType.Text;
                         cmd.ExecuteNonQuery();
                     }

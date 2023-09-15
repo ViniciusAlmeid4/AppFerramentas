@@ -11,5 +11,6 @@ namespace AppFerramentas.Models
         public string setor { get; set;}
         public string gerente { get; set;}
         public string cargo { get; set;}
+        public string codigo { get; set;}
     }
 }

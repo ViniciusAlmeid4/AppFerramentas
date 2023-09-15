@@ -1,11 +1,15 @@
-﻿using System;
+﻿using AppFerramentas.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.Xaml;
+using ZXing;
+using ZXing.QrCode.Internal;
 
 namespace AppFerramentas
 {
@@ -32,8 +36,7 @@ namespace AppFerramentas
         private void ZXingScannerView_OnScanResult(ZXing.Result result)
         {
             Device.BeginInvokeOnMainThread(() => {
-
-                /*
+                
                 if (result.Text != "")
                 {
                     scanResultText.Text = result.Text + " (type: " + result.BarcodeFormat.ToString() + ")";
@@ -46,20 +49,51 @@ namespace AppFerramentas
                     btCadastrarFerramenta.BackgroundColor = Color.BlanchedAlmond;
                 }
                 
-                */
             });
         }
 
-        private void btCadastrarFerramenta_Clicked(object sender, EventArgs e)
-        {
 
-            Navigation.PushAsync(new PageFerramentasCadastro());
+
+        async void btCadastrarFerramenta_Clicked(object sender, EventArgs e)
+        {
+            var codQR = new CodigoDeBarras
+            {
+                dados = scanResultText.Text.ToString()
+            };
+            
+            if (codQR != null)
+            {
+
+                var enviar = new PageFerramentasCadastro();
+
+                enviar.BindingContext = codQR.dados;
+                await Navigation.PushAsync(enviar);
+
+            }
 
         }
 
         private void btVerificarFerramenta_Clicked(object sender, EventArgs e)
         {
 
+        }
+
+        async void btCadastrarMaleta_Clicked(object sender, EventArgs e)
+        {
+            var codQR = new CodigoDeBarras
+            {
+                dados = scanResultText.Text.ToString()
+            };
+
+            if (codQR != null)
+            {
+
+                var enviar = new PageCadastroFuncionario();
+
+                enviar.BindingContext = codQR.dados;
+                await Navigation.PushAsync(enviar);
+
+            }
         }
     }
 }

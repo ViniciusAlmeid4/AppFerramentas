@@ -1,21 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppFerramentas.PageFerramentasCadastro">
+             x:Class="AppFerramentas.PageCadastroFuncionario">
     <NavigationPage.TitleView>
         <StackLayout Orientation="Horizontal">
-            <Label Text="Cadastro de Ferramentas" FontAttributes="Bold" TextColor="White" FontSize="Large"/>
+            <Label Text="Cadastro de Funcionario" FontAttributes="Bold" TextColor="White" FontSize="Large"/>
         </StackLayout>
     </NavigationPage.TitleView>
     <ContentPage.Content>
         <StackLayout Margin="15">
-            <Label Text="Tipo" FontSize="Medium" FontAttributes="Bold"/>
-            <Entry x:Name="txtTipo" Keyboard="Default"/>
+
             <Label Text="Nome" FontSize="Medium" FontAttributes="Bold"/>
-            <Entry x:Name="txtNomeFerramenta" Keyboard="Default"/>
+            <Entry x:Name="txtNomeFuncionario" Keyboard="Default"/>
+            <Label Text="Setor" FontSize="Medium" FontAttributes="Bold"/>
+            <Entry x:Name="txtSetor" Keyboard="Default"/>            
+            <Label Text="Gerente" FontSize="Medium" FontAttributes="Bold"/>
+            <Label x:Name="txtGerente" FontSize="Medium"/>
+            <Label Text="Cargo" FontSize="Medium" FontAttributes="Bold"/>
+            <Label x:Name="txtCargo" FontSize="Medium"/>
             <Label Text="Codigo" FontSize="Medium" FontAttributes="Bold"/>
             <Label x:Name="txtCodigo" FontSize="Medium"/>
             <Button Text="Cadastrar" FontAttributes="Bold" x:Name="btCadastrar" Clicked="btCadastrar_Clicked"/>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
