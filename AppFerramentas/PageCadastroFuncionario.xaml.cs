@@ -21,7 +21,7 @@ namespace AppFerramentas
         private void btCadastrar_Clicked(object sender, EventArgs e)
         {
             Pessoas.InserirFuncionario(txtNomeFuncionario.Text, txtSetor.Text, txtGerente.Text, txtCargo.Text, txtCodigo.Text);
-            DisplayAlert("Cadastro", "Ferramenta cadastrada com sucesso!!", "Ok");
+            DisplayAlert("Cadastro", "Funcionário cadastradado com sucesso!!", "Ok");
             Navigation.PopAsync();
         }
     }

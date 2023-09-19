@@ -58,15 +58,15 @@ namespace AppFerramentas
         {
             var codQR = new CodigoDeBarras
             {
-                dados = scanResultText.Text.ToString()
+                dados = "1" //scanResultText.Text.ToString()
             };
             
-            if (codQR != null)
+            if (codQR.dados != "")
             {
 
                 var enviar = new PageFerramentasCadastro();
 
-                enviar.BindingContext = codQR.dados;
+                enviar.BindingContext = codQR;
                 await Navigation.PushAsync(enviar);
 
             }
@@ -82,15 +82,15 @@ namespace AppFerramentas
         {
             var codQR = new CodigoDeBarras
             {
-                dados = scanResultText.Text.ToString()
+                dados = "1"//scanResultText.Text.ToString()
             };
 
-            if (codQR != null)
+            if (codQR.dados != "")
             {
 
                 var enviar = new PageCadastroFuncionario();
 
-                enviar.BindingContext = codQR.dados;
+                enviar.BindingContext = codQR;
                 await Navigation.PushAsync(enviar);
 
             }

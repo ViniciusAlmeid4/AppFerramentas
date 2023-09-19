@@ -13,10 +13,25 @@
                 <Label Text="Dados da caixa atual" FontSize="Large" FontAttributes="Bold"/>
             </StackLayout>
             <StackLayout Margin="40" VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
-                <Label x:Name="NomeUsuario" Text="@" FontAttributes="Bold" FontSize="Medium" Margin="0,0,0,50"/>
-                <Label x:Name="Setor" Text="@" FontAttributes="Bold" FontSize="Medium" Margin="0,0,0,50"/>
-                <Label x:Name="Gerente" Text="@" FontAttributes="Bold" FontSize="Medium" Margin="0,0,0,50"/>
-                <Label x:Name="Cargo" Text="@" FontAttributes="Bold" FontSize="Medium" Margin="0,0,0,50"/>
+
+                <ListView x:Name="lsvMaleta" ItemSelected="lsvMaleta_ItemSelected" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Vertical">
+                                        <!--<Label x:Name="txtNomeUsuario" Text="{Binding nome_ferramenta}" FontAttributes="Bold" FontSize="Medium" Margin="0,0,0,50"/>
+                                        <Label x:Name="txtSetor" Text="{Binding setor}" FontAttributes="Bold" FontSize="Medium" Margin="0,0,0,50"/>
+                                        <Label x:Name="txtGerente" Text="{Binding gerente}" FontAttributes="Bold" FontSize="Medium" Margin="0,0,0,50"/>-->
+                                        <Label x:Name="txtCargo" Text="{Binding cargo}" FontAttributes="Bold" FontSize="Medium" Margin="0,0,0,50"/>
+                                        <Label x:Name="txtCodigo" Text="{Binding codigo}" FontAttributes="Bold" FontSize="Medium" Margin="0,0,0,50"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
             </StackLayout>
             <StackLayout VerticalOptions="End">
                 <Button HorizontalOptions="CenterAndExpand" Text="Atualizar"/>

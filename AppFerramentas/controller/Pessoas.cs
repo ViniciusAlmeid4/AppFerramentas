@@ -100,8 +100,7 @@ namespace AppFerramentas.controller
             }
             catch (Exception ex)
             {
-
-
+                throw new Exception(ex.Message);
             }
         }
     }

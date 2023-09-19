@@ -14,7 +14,7 @@
             <Label Text="Nome" FontSize="Medium" FontAttributes="Bold"/>
             <Entry x:Name="txtNomeFerramenta" Keyboard="Default"/>
             <Label Text="Codigo" FontSize="Medium" FontAttributes="Bold"/>
-            <Label x:Name="txtCodigo" FontSize="Medium"/>
+            <Label x:Name="txtCodigo" FontSize="Medium" Text="{Binding dados}"/>
             <Button Text="Cadastrar" FontAttributes="Bold" x:Name="btCadastrar" Clicked="btCadastrar_Clicked"/>
         </StackLayout>
     </ContentPage.Content>

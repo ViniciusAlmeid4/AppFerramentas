@@ -17,6 +17,8 @@ namespace AppFerramentas
 
         }
 
+
+
         private void btnLeitor_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new PageLeitor());

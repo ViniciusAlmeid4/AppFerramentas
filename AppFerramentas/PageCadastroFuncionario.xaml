@@ -4,7 +4,7 @@
              x:Class="AppFerramentas.PageCadastroFuncionario">
     <NavigationPage.TitleView>
         <StackLayout Orientation="Horizontal">
-            <Label Text="Cadastro de Funcionario" FontAttributes="Bold" TextColor="White" FontSize="Large"/>
+            <Label Text="Cadastro da Maleta" FontAttributes="Bold" TextColor="White" FontSize="Large"/>
         </StackLayout>
     </NavigationPage.TitleView>
     <ContentPage.Content>
@@ -15,11 +15,11 @@
             <Label Text="Setor" FontSize="Medium" FontAttributes="Bold"/>
             <Entry x:Name="txtSetor" Keyboard="Default"/>            
             <Label Text="Gerente" FontSize="Medium" FontAttributes="Bold"/>
-            <Label x:Name="txtGerente" FontSize="Medium"/>
+            <Entry x:Name="txtGerente" FontSize="Medium"/>
             <Label Text="Cargo" FontSize="Medium" FontAttributes="Bold"/>
-            <Label x:Name="txtCargo" FontSize="Medium"/>
+            <Entry x:Name="txtCargo" FontSize="Medium"/>
             <Label Text="Codigo" FontSize="Medium" FontAttributes="Bold"/>
-            <Label x:Name="txtCodigo" FontSize="Medium"/>
+            <Label x:Name="txtCodigo" FontSize="Medium" Text="{Binding dados}"/>
             <Button Text="Cadastrar" FontAttributes="Bold" x:Name="btCadastrar" Clicked="btCadastrar_Clicked"/>
             
         </StackLayout>

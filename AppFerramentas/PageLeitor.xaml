@@ -12,8 +12,8 @@
             <Label x:Name="scanResultText"/>
             <zxing:ZXingScannerView IsScanning="True" OnScanResult="ZXingScannerView_OnScanResult"/>
             <Button x:Name="btCadastrarFerramenta" Text="Cadastrar Ferramenta" Clicked="btCadastrarFerramenta_Clicked"></Button>
-            <Button x:Name="btVerificarFerramenta" Text="Verificar" Clicked="btVerificarFerramenta_Clicked" Margin="0,0,0,10"></Button>
-            <Button x:Name="btCadastrarMaleta" Text="Cadastrar Maleta" Clicked="btCadastrarMaleta_Clicked"></Button>
+            <Button x:Name="btVerificarFerramenta" Text="Verificar" Clicked="btVerificarFerramenta_Clicked"></Button>
+            <Button x:Name="btCadastrarMaleta" Text="Cadastrar Maleta" Clicked="btCadastrarMaleta_Clicked" Margin="0,0,0,10"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

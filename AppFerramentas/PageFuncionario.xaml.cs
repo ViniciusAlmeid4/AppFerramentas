@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppFerramentas.controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,18 @@ namespace AppFerramentas
         public PageFuncionario()
         {
             InitializeComponent();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            lsvMaleta.ItemsSource = Pessoas.ListarFuncionario();
+
+        }
+
+        private void lsvMaleta_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+
         }
     }
 }

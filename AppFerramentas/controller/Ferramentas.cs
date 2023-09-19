@@ -100,8 +100,7 @@ namespace AppFerramentas.controller
             }
             catch (Exception ex)
             {
-
-                
+                throw new Exception(ex.Message);
             }
         }
 
@@ -127,8 +126,7 @@ namespace AppFerramentas.controller
             }
             catch (Exception ex)
             {
-
-
+                throw new Exception(ex.Message);
             }
         }
     }
