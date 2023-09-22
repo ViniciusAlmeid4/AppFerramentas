@@ -9,7 +9,7 @@
     </NavigationPage.TitleView>
     <ContentPage.Content>
         <StackLayout Margin="20" Orientation="Vertical">
-            <StackLayout VerticalOptions="Start"  HorizontalOptions="Center" Margin="0,0,0,17">
+            <StackLayout VerticalOptions="Start"  HorizontalOptions="Center" Margin="0,0,0,21">
                 <Label Text="Dados da caixa atual" FontSize="Large" FontAttributes="Bold"/>
             </StackLayout>
             
