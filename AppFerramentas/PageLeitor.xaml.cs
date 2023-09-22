@@ -21,18 +21,6 @@ namespace AppFerramentas
             InitializeComponent();
         }
 
-        /*
-         function async {
-             var dados = new Pessoa{
-                nome_funcionario = nome.text
-                ...
-            }
-            var enviar = new PageFuncionario();
-            enviar.BindingContext = dados;
-            await Navigation.PushAsync(enviar);
-        }
-         */
-
         private void ZXingScannerView_OnScanResult(ZXing.Result result)
         {
             Device.BeginInvokeOnMainThread(() => {
@@ -58,7 +46,7 @@ namespace AppFerramentas
         {
             var codQR = new CodigoDeBarras
             {
-                dados = "1" //scanResultText.Text.ToString()
+                dados = scanResultText.Text.ToString()
             };
             
             if (codQR.dados != "")
@@ -82,7 +70,7 @@ namespace AppFerramentas
         {
             var codQR = new CodigoDeBarras
             {
-                dados = "1"//scanResultText.Text.ToString()
+                dados = scanResultText.Text.ToString()
             };
 
             if (codQR.dados != "")
