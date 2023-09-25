@@ -1,13 +1,13 @@
-﻿using System;
-
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
 using Android.OS;
+using Android.Runtime;
+using AppFerramentas.controller;
+using AppFerramentas.Models;
 
 namespace AppFerramentas.Droid
 {
-    [Activity(Label = "AppFerramentas", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize )]
+    [Activity(Label = "AppFerramentas", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -16,8 +16,24 @@ namespace AppFerramentas.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            ZXing.Net.Mobile.Forms.Android.Platform.Init();
-            LoadApplication(new App());
+            ZXing.Net.Mobile.Forms.Android.Platform.Init();            
+
+            var registroBanco = Pessoas.VerificaBanco();
+
+            if (registroBanco != false)
+            {
+
+                LoadApplication(new App());
+
+            }
+            else
+            {
+
+                LoadApplication(new App());
+                new PageLeitor();
+
+            }
+
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {

@@ -1,15 +1,9 @@
-﻿using AppFerramentas.Models;
+﻿using AppFerramentas.controller;
+using AppFerramentas.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
-using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.Xaml;
-using ZXing;
-using ZXing.QrCode.Internal;
 
 namespace AppFerramentas
 {
@@ -19,12 +13,22 @@ namespace AppFerramentas
         public PageLeitor()
         {
             InitializeComponent();
+
+            var registroBanco = Pessoas.VerificaBanco();
+
+            if (registroBanco == false)
+            {
+
+                DisplayAlert("");
+
+            }
         }
 
         private void ZXingScannerView_OnScanResult(ZXing.Result result)
         {
-            Device.BeginInvokeOnMainThread(() => {
-                
+            Device.BeginInvokeOnMainThread(() =>
+            {
+
                 if (result.Text != "")
                 {
                     scanResultText.Text = result.Text + " (type: " + result.BarcodeFormat.ToString() + ")";
@@ -36,7 +40,7 @@ namespace AppFerramentas
                     btCadastrarFerramenta.IsEnabled = false;
                     btCadastrarFerramenta.BackgroundColor = Color.BlanchedAlmond;
                 }
-                
+
             });
         }
 
@@ -48,7 +52,7 @@ namespace AppFerramentas
             {
                 dados = scanResultText.Text.ToString()
             };
-            
+
             if (codQR.dados != "")
             {
 

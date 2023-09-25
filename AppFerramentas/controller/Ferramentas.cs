@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using AppFerramentas.Models;
 using MySqlConnector;
-using AppFerramentas.Models;
+using System;
+using System.Collections.Generic;
 using System.Data;
 
 namespace AppFerramentas.controller
@@ -87,7 +86,7 @@ namespace AppFerramentas.controller
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, con))
                     {
-                        cmd.Parameters.Add("@tipo", MySqlDbType.VarChar).Value= ferramenta.tipo;
+                        cmd.Parameters.Add("@tipo", MySqlDbType.VarChar).Value = ferramenta.tipo;
                         cmd.Parameters.Add("@nome_ferramenta", MySqlDbType.VarChar).Value = ferramenta.nome_ferramenta;
                         cmd.Parameters.Add("@codigo", MySqlDbType.VarChar).Value = ferramenta.codigo;
                         cmd.Parameters.Add("@id_ferramenta", MySqlDbType.Int32).Value = ferramenta.id_ferramenta;

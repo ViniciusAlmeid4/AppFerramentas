@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppFerramentas.Android", "AppFerramentas.Android\AppFerramentas.Android.csproj", "{FDD4FC54-6610-44A9-8F92-B40E270C9110}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppFerramentas", "AppFerramentas\AppFerramentas.csproj", "{7B6C612A-2CD8-41E1-BB7C-5FDA757644F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppFerramentas", "AppFerramentas\AppFerramentas.csproj", "{7B6C612A-2CD8-41E1-BB7C-5FDA757644F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
