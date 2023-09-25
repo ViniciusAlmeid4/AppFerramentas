@@ -19,8 +19,10 @@ namespace AppFerramentas
             if (registroBanco == false)
             {
 
-                DisplayAlert("");
+                DisplayAlert("Nenhum usuario encontrado","Cadastre um usuario antes de usar o leitor!!", "Ok");
 
+                Navigation.PopAsync();
+                Navigation.PushAsync(new PageCadastroFuncionario());
             }
         }
 

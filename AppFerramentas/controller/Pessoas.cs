@@ -37,8 +37,7 @@ namespace AppFerramentas.controller
                                 nome_funcionario = reader.GetString(1),
                                 setor = reader.GetString(2),
                                 gerente = reader.GetString(3),
-                                cargo = reader.GetString(4),
-                                codigo = reader.GetString(5)
+                                cargo = reader.GetString(4)
 
                             };
 
@@ -55,9 +54,9 @@ namespace AppFerramentas.controller
             }
         }
 
-        public static void InserirFuncionario(string nome_funcionario, string setor, string gerente, string cargo, string codigo)
+        public static void InserirFuncionario(string nome_funcionario, string setor, string gerente, string cargo)
         {
-            string sql = "INSERT INTO funcionario(nome_funcionario, setor, gerente, cargo, codigo) VALUES (@nome_funcionario, @setor, @gerente, @cargo, @codigo)";
+            string sql = "INSERT INTO funcionario(nome_funcionario, setor, gerente, cargo) VALUES (@nome_funcionario, @setor, @gerente, @cargo)";
 
             using (MySqlConnection con = new MySqlConnection(conn))
             {
@@ -69,7 +68,6 @@ namespace AppFerramentas.controller
                     cmd.Parameters.Add("@setor", MySqlDbType.VarChar).Value = setor;
                     cmd.Parameters.Add("@gerente", MySqlDbType.VarChar).Value = gerente;
                     cmd.Parameters.Add("@cargo", MySqlDbType.VarChar).Value = cargo;
-                    cmd.Parameters.Add("@codigo", MySqlDbType.VarChar).Value = codigo;
                     cmd.CommandType = CommandType.Text;
                     cmd.ExecuteNonQuery();
                 }
