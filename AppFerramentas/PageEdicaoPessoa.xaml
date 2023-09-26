@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppFerramentas.PageEdicaoPessoa">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Editar/Apagar Funcionário" FontAttributes="Bold" TextColor="White" FontSize="Large"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout Margin="15,25,15,0">
+
+            <StackLayout Margin="0,0,0,45">
+                <Label Text="Nome" FontSize="Medium" FontAttributes="Bold"/>
+                <Entry x:Name="txtIdFuncionario" Text="{Binding id_funcionario}" Keyboard="Default"/>
+            </StackLayout>
+            <StackLayout Margin="0,0,0,45">
+                <Label Text="Nome" FontSize="Medium" FontAttributes="Bold"/>
+                <Entry x:Name="txtNomeFuncionario" Text="{Binding nome_funcionario}" Keyboard="Default"/>
+            </StackLayout>
+            <StackLayout Margin="0,0,0,45">
+                <Label Text="Setor" FontSize="Medium" FontAttributes="Bold"/>
+                <Entry x:Name="txtSetor" Text="{Binding setor}" Keyboard="Default"/>
+            </StackLayout>
+            <StackLayout Margin="0,0,0,45">
+                <Label Text="Gerente" FontSize="Medium" FontAttributes="Bold"/>
+                <Entry x:Name="txtGerente" Text="{Binding gerente}" FontSize="Medium"/>
+            </StackLayout>
+            <StackLayout Margin="0,0,0,45">
+                <Label Text="Cargo" FontSize="Medium" FontAttributes="Bold"/>
+                <Entry x:Name="txtCargo" Text="{Binding cargo}" FontSize="Medium"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Button Text="Atualizar" HorizontalOptions="StartAndExpand" FontSize="Medium" WidthRequest="150" Margin="0,0,20,0"/>
+                <Button Text="Excluir" HorizontalOptions="EndAndExpand" FontSize="Medium" WidthRequest="150"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

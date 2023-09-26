@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppFerramentas.controller;
+using System;
 using Xamarin.Forms;
 
 namespace AppFerramentas
@@ -9,6 +10,15 @@ namespace AppFerramentas
         {
             InitializeComponent();
 
+            var registroBanco = Pessoas.VerificaBanco();
+
+            if (registroBanco == false)
+            {
+
+                DisplayAlert("Sem funcionario cadastrado", "Não há nenhum registro de funcionario. Por favor, cadastre-se!!", "Ir para cadastro!");
+                Navigation.PushAsync(new PageCadastroFuncionario());
+
+            }
 
         }
 

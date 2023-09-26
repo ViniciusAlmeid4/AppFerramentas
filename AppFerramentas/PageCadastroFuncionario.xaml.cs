@@ -16,9 +16,39 @@ namespace AppFerramentas
 
         private void btCadastrar_Clicked(object sender, EventArgs e)
         {
-            Pessoas.InserirFuncionario(txtNomeFuncionario.Text, txtSetor.Text, txtGerente.Text, txtCargo.Text, txtCodigo.Text);
-            DisplayAlert("Cadastro", "Funcionário cadastradado com sucesso!!", "Ok");
-            Navigation.PopAsync();
+            bool verificado = verificaCampos();
+
+            if (verificado == true)
+            {
+                Pessoas.InserirFuncionario(txtNomeFuncionario.Text, txtSetor.Text, txtGerente.Text, txtCargo.Text);
+                DisplayAlert("Cadastro", "Funcionário cadastradado com sucesso!!", "Ok");
+                Navigation.PopAsync();
+            }
+            
+        }
+
+        private bool verificaCampos()
+        {
+            if (txtNomeFuncionario.Text == "")
+            {
+                DisplayAlert("Valor inválido", "Nome de funcionario não inserido!!", "OK");
+                return false;
+            }
+            else if(txtSetor.Text == ""){
+                DisplayAlert("Valor inválido", "Setor não inserido!!", "OK");
+                return false;
+            }
+            else if (txtGerente.Text == "")
+            {
+                DisplayAlert("Valor inválido", "Nome do gerente não inserido!!", "OK");
+                return false;
+            }
+            else if (txtCargo.Text == "")
+            {
+                DisplayAlert("Valor inválido", "Cargo não inserido!!", "OK");
+                return false;
+            }
+            return true;
         }
     }
 }

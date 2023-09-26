@@ -12,46 +12,39 @@
             <StackLayout VerticalOptions="Start"  HorizontalOptions="Center" Margin="0,0,0,21">
                 <Label Text="Dados da caixa atual" FontSize="Large" FontAttributes="Bold"/>
             </StackLayout>
-            
+
             <StackLayout Margin="1,0" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" >
-                
-                    <ListView x:Name="lsvMaleta" ItemSelected="lsvMaleta_ItemSelected" RowHeight="350">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                                        <StackLayout Orientation="Vertical">
-                                            <StackLayout Orientation="Horizontal" Margin="0,0,0,42">
-                                                <Label Text="Nome: " FontAttributes="Bold" FontSize="Medium"/>
-                                                <Label x:Name="txtNomeUsuario" Text="{Binding nome_funcionario}" FontAttributes="Bold" FontSize="Medium" />
-                                            </StackLayout>
-                                            <StackLayout Orientation="Horizontal" Margin="0,0,0,42">
-                                                <Label Text="Setor: " FontAttributes="Bold" FontSize="Medium"/>
-                                                <Label x:Name="txtSetor" Text="{Binding setor}" FontAttributes="Bold" FontSize="Medium" />
-                                            </StackLayout>
-                                            <StackLayout Orientation="Horizontal" Margin="0,0,0,42">
-                                                <Label Text="Gerente: " FontAttributes="Bold" FontSize="Medium"/>
-                                                <Label x:Name="txtGerente" Text="{Binding gerente}" FontAttributes="Bold" FontSize="Medium" />
-                                            </StackLayout>
-                                            <StackLayout Orientation="Horizontal" Margin="0,0,0,42">
-                                                <Label Text="Cargo: " FontAttributes="Bold" FontSize="Medium"/>
-                                                <Label x:Name="txtCargo" Text="{Binding cargo}" FontAttributes="Bold" FontSize="Medium" />
-                                            </StackLayout>
-                                            <StackLayout Orientation="Horizontal" Margin="0,0,0,42">
-                                                <Label x:Name="txtCodigo" Text="{Binding codigo}" FontAttributes="Bold" FontSize="Medium" />
-                                            </StackLayout>
-                                            
+
+                <ListView x:Name="lsvMaleta" ItemSelected="lsvMaleta_ItemSelected" RowHeight="590">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+                                        <StackLayout  Margin="0,40,0,82">
+                                            <Label Text="Nome: " FontAttributes="Bold" FontSize="Medium"/>
+                                            <Label x:Name="txtNomeUsuario" Text="{Binding nome_funcionario}" FontAttributes="Bold" FontSize="Medium" />
+                                        </StackLayout>
+                                        <StackLayout  Margin="0,0,0,82">
+                                            <Label Text="Setor: " FontAttributes="Bold" FontSize="Medium"/>
+                                            <Label x:Name="txtSetor" Text="{Binding setor}" FontAttributes="Bold" FontSize="Medium" />
+                                        </StackLayout>
+                                        <StackLayout  Margin="0,0,0,82">
+                                            <Label Text="Gerente: " FontAttributes="Bold" FontSize="Medium"/>
+                                            <Label x:Name="txtGerente" Text="{Binding gerente}" FontAttributes="Bold" FontSize="Medium" />
+                                        </StackLayout>
+                                        <StackLayout  Margin="0,0,0,82">
+                                            <Label Text="Cargo: " FontAttributes="Bold" FontSize="Medium"/>
+                                            <Label x:Name="txtCargo" Text="{Binding cargo}" FontAttributes="Bold" FontSize="Medium" />
                                         </StackLayout>
                                     </StackLayout>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
 
-            </StackLayout>
-            <StackLayout VerticalOptions="End">
-                <Button HorizontalOptions="CenterAndExpand" Text="Atualizar"/>
+
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

@@ -72,22 +72,5 @@ namespace AppFerramentas
 
         }
 
-        async void btCadastrarMaleta_Clicked(object sender, EventArgs e)
-        {
-            var codQR = new CodigoDeBarras
-            {
-                dados = scanResultText.Text.ToString()
-            };
-
-            if (codQR.dados != "")
-            {
-
-                var enviar = new PageCadastroFuncionario();
-
-                enviar.BindingContext = codQR;
-                await Navigation.PushAsync(enviar);
-
-            }
-        }
     }
 }
