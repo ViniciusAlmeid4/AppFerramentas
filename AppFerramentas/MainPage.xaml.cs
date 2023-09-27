@@ -6,6 +6,9 @@ namespace AppFerramentas
 {
     public partial class MainPage : ContentPage
     {
+        // https://learn.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/controls/pages
+
+
         public MainPage()
         {
             InitializeComponent();
@@ -14,15 +17,13 @@ namespace AppFerramentas
 
             if (registroBanco == false)
             {
-
-                DisplayAlert("Sem funcionario cadastrado", "Não há nenhum registro de funcionario. Por favor, cadastre-se!!", "Ir para cadastro!");
+                
                 Navigation.PushAsync(new PageCadastroFuncionario());
+                DisplayAlert("Sem funcionario cadastrado", "Não há nenhum registro de funcionario. Por favor, cadastre-se!!", "OK");
 
             }
 
         }
-
-
 
         private void btnLeitor_Clicked(object sender, EventArgs e)
         {

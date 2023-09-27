@@ -8,27 +8,30 @@
         </StackLayout>
     </NavigationPage.TitleView>
     <ContentPage.Content>
-        <StackLayout Margin="15,75,15,0">
+        <ScrollView>
+            <StackLayout Margin="15,75,15,0">
 
-            <StackLayout Margin="0,0,0,45">
-                <Label Text="Nome" FontSize="Medium" FontAttributes="Bold"/>
-                <Entry x:Name="txtNomeFuncionario" Keyboard="Default"/>
-            </StackLayout>
-            <StackLayout Margin="0,0,0,45">
-                <Label Text="Setor" FontSize="Medium" FontAttributes="Bold"/>
-                <Entry x:Name="txtSetor" Keyboard="Default"/>
-            </StackLayout>
-            <StackLayout Margin="0,0,0,45">
-                <Label Text="Gerente" FontSize="Medium" FontAttributes="Bold"/>
-                <Entry x:Name="txtGerente" FontSize="Medium"/>
-            </StackLayout>
-            <StackLayout Margin="0,0,0,45">
-                <Label Text="Cargo" FontSize="Medium" FontAttributes="Bold"/>
-                <Entry x:Name="txtCargo" FontSize="Medium"/>
-            </StackLayout>
+                <StackLayout Margin="0,0,0,45">
+                    <Label Text="Nome" FontSize="Medium" FontAttributes="Bold"/>
+                    <Entry x:Name="txtNomeFuncionario" Keyboard="Default"/>
+                </StackLayout>
+                <StackLayout Margin="0,0,0,45">
+                    <Label Text="Setor" FontSize="Medium" FontAttributes="Bold"/>
+                    <Entry x:Name="txtSetor" Keyboard="Default"/>
+                </StackLayout>
+                <StackLayout Margin="0,0,0,45">
+                    <Label Text="Gerente" FontSize="Medium" FontAttributes="Bold"/>
+                    <Entry x:Name="txtGerente" FontSize="Medium"/>
+                </StackLayout>
+                <StackLayout Margin="0,0,0,45">
+                    <Label Text="Cargo" FontSize="Medium" FontAttributes="Bold"/>
+                    <Entry x:Name="txtCargo" FontSize="Medium"/>
+                </StackLayout>
 
-            <Button Text="Cadastrar" FontAttributes="Bold" x:Name="btCadastrar" Clicked="btCadastrar_Clicked" VerticalOptions="End" Margin="0,20,0,0"/>
+                <Button Text="Cadastrar" FontAttributes="Bold" x:Name="btCadastrar" Clicked="btCadastrar_Clicked" VerticalOptions="End" Margin="0,20,0,20"/>
 
-        </StackLayout>
+            </StackLayout>
+        </ScrollView>
+        
     </ContentPage.Content>
 </ContentPage>

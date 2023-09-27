@@ -75,9 +75,9 @@ namespace AppFerramentas.controller
                 con.Close();
             }
         }
-        public static void ExcluirFuncionario(Pessoa func)
+        public static void ExcluirFuncionario()
         {
-            string sql = "DELETE FROM funcionario WHERE id_funcionario=@id_funcionario";
+            string sql = "TRUNCATE TABLE funcionario";
 
             try
             {
@@ -87,8 +87,6 @@ namespace AppFerramentas.controller
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, con))
                     {
-                        cmd.Parameters.Add("@id_funcionario", MySqlDbType.Int32).Value = func.id_funcionario;
-                        cmd.CommandType = CommandType.Text;
                         cmd.ExecuteNonQuery();
                     }
 
