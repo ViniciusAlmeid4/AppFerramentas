@@ -10,5 +10,11 @@ namespace AppFerramentas
         {
             InitializeComponent();
         }
+
+        private void lsvVerificados_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            Navigation.PopAsync();
+            Navigation.PushAsync(new PageLeitor());
+        }
     }
 }

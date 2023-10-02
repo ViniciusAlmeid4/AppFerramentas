@@ -4,25 +4,37 @@
              x:Class="AppFerramentas.PageFerramentas" Title="Listagem de ferramentas">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Ferramentas:" FontAttributes="Bold" FontSize="40" HorizontalOptions="Center"/>
-            <ListView x:Name="lsvFerramentas" ItemSelected="lsvFerramentas_ItemSelected">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                                <StackLayout Orientation="Vertical">
-                                    <StackLayout Orientation="Horizontal" Margin="5,15,5,15">
-                                        <Label Text="{Binding tipo}" HorizontalOptions="StartAndExpand"/>
-                                        <Label Text="{Binding nome_ferramenta}" HorizontalOptions="CenterAndExpand"/>
-                                        <Label Text="{Binding codigo}" HorizontalOptions="EndAndExpand"/>
+            
+            <ScrollView>
+                <StackLayout>
+                    <Label Text="Ferramentas:" FontAttributes="Bold" FontSize="40" HorizontalOptions="Center"/>
+                    <ListView x:Name="lsvFerramentas" ItemSelected="lsvFerramentas_ItemSelected">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                        <StackLayout Orientation="Vertical">
+                                            <StackLayout Orientation="Horizontal" Margin="5,15,5,15">
+                                                <Label Text="{Binding tipo}" HorizontalOptions="StartAndExpand"/>
+                                                <Label Text="{Binding nome_ferramenta}" HorizontalOptions="CenterAndExpand"/>
+                                                <Label Text="{Binding codigo}" HorizontalOptions="EndAndExpand"/>
+                                            </StackLayout>
+                                        </StackLayout>
                                     </StackLayout>
-                                </StackLayout>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </ScrollView>
+            
+            <StackLayout>
+                
+            </StackLayout>
+            
         </StackLayout>
+        
+        
     </ContentPage.Content>
     <ContentPage.ToolbarItems>
         <ToolbarItem x:Name="btnNovaFerra" Text="Novo" Priority="0" Order="Primary" Clicked="btnNovaFerra_Clicked"/>

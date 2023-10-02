@@ -4,9 +4,31 @@
              x:Class="AppFerramentas.PageVerificacao">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <ScrollView>
+                <StackLayout>
+                    <ListView x:Name="lsvVerificados" ItemSelected="lsvVerificados_ItemSelected">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                        <StackLayout Orientation="Vertical">
+                                            <StackLayout Orientation="Horizontal" Margin="5,15,5,15">
+                                                <Label Text="{Binding tipo}" HorizontalOptions="StartAndExpand"/>
+                                                <Label Text="{Binding nome_ferramenta}" HorizontalOptions="CenterAndExpand"/>
+                                                <Label Text="" x:Name="txtVerificado" HorizontalOptions="CenterAndExpand"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </ScrollView>
+            
+            <StackLayout>
+                
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

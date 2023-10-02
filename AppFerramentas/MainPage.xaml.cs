@@ -39,5 +39,10 @@ namespace AppFerramentas
         {
             Navigation.PushAsync(new PageFuncionario());
         }
+
+        private void btnListaVerificados_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new PageVerificacao());
+        }
     }
 }

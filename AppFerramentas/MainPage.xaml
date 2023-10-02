@@ -7,6 +7,7 @@
         <Button x:Name="btnLeitor" Clicked="btnLeitor_Clicked" Text="Leitor"/>
         <Button x:Name="btnListaFerramentas" Clicked="btnListaFerramentas_Clicked" Text="Ferramentas"/>
         <Button x:Name="btnMeusDados" Clicked="btnMeusDados_Clicked" Text="Meus Dados"/>
+        <Button x:Name="btnListaVerificados" Clicked="btnListaVerificados_Clicked" Text="Lista de verificação"/>
     </StackLayout>
 
 </ContentPage>
