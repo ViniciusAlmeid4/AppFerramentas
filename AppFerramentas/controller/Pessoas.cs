@@ -128,5 +128,42 @@ namespace AppFerramentas.controller
                 return false;
             }
         }
+        public static List<Pessoa> ListarIdPessoa()
+        {
+            List<Pessoa> pes = new List<Pessoa>();
+
+            string sql = "SELECT MAX(id_funcionario) FROM funcionario";
+
+            using (MySqlConnection con = new MySqlConnection(conn))
+            {
+
+                con.Open();
+
+                using (MySqlCommand cmd = new MySqlCommand(sql, con))
+                {
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+
+                        while (reader.Read())
+                        {
+
+                            Pessoa pesoa = new Pessoa()
+                            {
+                                id_funcionario = Convert.ToInt32(reader.GetString(0))
+                            };
+
+                            pes.Add(pesoa);
+                        }
+
+                    }
+
+                }
+
+                con.Close();
+
+                return pes;
+            }
+        }
     }
 }

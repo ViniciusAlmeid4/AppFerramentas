@@ -54,10 +54,10 @@ namespace AppFerramentas.controller
                 return ver;
             }
         }
-        public static void Verifica() // passar o i de algm jeito
-        {
-            // Pessoa pessoa = Pessoas.ListarFuncionario();        coletar o id do funcionario de algm jeito
 
+        public static void Verifica(string id_ferramenta) // passar o i de algm jeito
+        {
+            var pessoa = Pessoas.ListarIdPessoa();
             string sql = "INSERT INTO verificacao(id_func, id_ferra) VALUES (@id_func, @id_ferra, @gerente, @cargo)";
 
             using (MySqlConnection con = new MySqlConnection(conn))
@@ -66,8 +66,8 @@ namespace AppFerramentas.controller
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, con))
                 {
-                    cmd.Parameters.Add("@id_func", MySqlDbType.VarChar).Value = pessoa.id_funcionario;
-                    cmd.Parameters.Add("@id_ferra", MySqlDbType.VarChar).Value = i.id_ferramenta;
+                    cmd.Parameters.Add("@id_func", MySqlDbType.Int32).Value = Convert.ToInt32(pessoa);
+                    cmd.Parameters.Add("@id_ferra", MySqlDbType.Int32).Value = id_ferramenta;
                     cmd.CommandType = CommandType.Text;
                     cmd.ExecuteNonQuery();
                 }

@@ -11,6 +11,7 @@ namespace AppFerramentas
     public partial class PageLeitor : ContentPage
     {
         public List<Ferramenta> ferramentas;
+        public List<Pessoa> pessoa;
 
         public PageLeitor()
         {
@@ -83,12 +84,11 @@ namespace AppFerramentas
 
         private void btConfirmar_Clicked(object sender, EventArgs e)
         {
-
             foreach (var i in ferramentas)
             {
                 if (i.codigo.ToString() == scanResultText.Text.ToString())
                 {
-                    Verificacao.Verifica(i);
+                    Verificacao.Verifica(i.id_ferramenta.ToString());
                 }
             }
             
