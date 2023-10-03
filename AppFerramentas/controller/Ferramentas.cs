@@ -3,6 +3,7 @@ using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Runtime.ConstrainedExecution;
 
 namespace AppFerramentas.controller
 {
@@ -126,6 +127,44 @@ namespace AppFerramentas.controller
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
+            }
+        }
+        public static List<Ferramenta> ListarCodigo()
+        {
+            List<Ferramenta> fer = new List<Ferramenta>();
+
+            string sql = "SELECT codigo,id_ferramenta FROM ferramenta";
+
+            using (MySqlConnection con = new MySqlConnection(conn))
+            {
+
+                con.Open();
+
+                using (MySqlCommand cmd = new MySqlCommand(sql, con))
+                {
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+
+                        while (reader.Read())
+                        {
+
+                            Ferramenta ferra = new Ferramenta()
+                            {
+                                codigo = reader.GetString(0),
+                                id_ferramenta = reader.GetInt32(1)
+                            };
+
+                            fer.Add(ferra);
+                        }
+
+                    }
+
+                }
+
+                con.Close();
+
+                return fer;
             }
         }
     }

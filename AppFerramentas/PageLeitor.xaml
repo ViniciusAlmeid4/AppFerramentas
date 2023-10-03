@@ -11,8 +11,12 @@
         <StackLayout>
             <Label x:Name="scanResultText"/>
             <zxing:ZXingScannerView IsScanning="True" OnScanResult="ZXingScannerView_OnScanResult"/>
-            <Button x:Name="btCadastrarFerramenta" Text="Cadastrar Ferramenta" Clicked="btCadastrarFerramenta_Clicked"></Button>
-            <Button x:Name="btVerificarFerramenta" Text="Verificar" Clicked="btVerificarFerramenta_Clicked"></Button>
+            <Button x:Name="btCadastrarFerramenta" Text="Cadastrar Ferramenta" Clicked="btCadastrarFerramenta_Clicked"/>
+            <Button x:Name="btVerificarFerramenta" Text="Verificar" Clicked="btVerificarFerramenta_Clicked"/>
+            <StackLayout x:Name="slConFin" IsVisible="false" Orientation="Horizontal" Margin="0,5,0,10">
+                <Button x:Name="btConfirmar" Text="Confirmar" Clicked="btConfirmar_Clicked" IsVisible="false" HorizontalOptions="FillAndExpand" FontAttributes="Bold" FontSize="Medium" HeightRequest="65"/>
+                <Button x:Name="btFinalizar" Text="Finalizar" Clicked="btFinalizar_Clicked" IsVisible="false" HorizontalOptions="FillAndExpand" FontAttributes="Bold" FontSize="Medium"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

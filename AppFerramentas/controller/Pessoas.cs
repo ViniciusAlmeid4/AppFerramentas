@@ -77,7 +77,7 @@ namespace AppFerramentas.controller
         }
         public static void ExcluirFuncionario()
         {
-            string sql = "TRUNCATE TABLE funcionario";
+            string sql = "DELETE FROM TABLE funcionario WHERE id_funcionario=(SELECT MAX(id_funcionario) FROM funcionario)";
 
             try
             {

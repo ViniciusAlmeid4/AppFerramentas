@@ -13,9 +13,8 @@
                                     <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                                         <StackLayout Orientation="Vertical">
                                             <StackLayout Orientation="Horizontal" Margin="5,15,5,15">
-                                                <Label Text="{Binding tipo}" HorizontalOptions="StartAndExpand"/>
-                                                <Label Text="{Binding nome_ferramenta}" HorizontalOptions="CenterAndExpand"/>
-                                                <Label Text="" x:Name="txtVerificado" HorizontalOptions="CenterAndExpand"/>
+                                                <Label Text="{Binding id_verificacao}"/>
+                                                <Label Text="{Binding data_verificacao}"/>
                                             </StackLayout>
                                         </StackLayout>
                                     </StackLayout>

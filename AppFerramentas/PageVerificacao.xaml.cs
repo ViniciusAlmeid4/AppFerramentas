@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using AppFerramentas.controller;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace AppFerramentas
@@ -9,6 +10,7 @@ namespace AppFerramentas
         public PageVerificacao()
         {
             InitializeComponent();
+            lsvVerificados.ItemsSource = Verificacao.ListarVerificacao();
         }
 
         private void lsvVerificados_ItemSelected(object sender, SelectedItemChangedEventArgs e)

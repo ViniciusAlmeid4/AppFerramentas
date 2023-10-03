@@ -1,7 +1,7 @@
 ﻿using AppFerramentas.controller;
 using AppFerramentas.Models;
 using System;
-
+using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,11 +10,13 @@ namespace AppFerramentas
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageLeitor : ContentPage
     {
+        public List<Ferramenta> ferramentas;
+
         public PageLeitor()
         {
             InitializeComponent();
 
-            var registroBanco = Pessoas.VerificaBanco();
+            var registroBanco = true;//Pessoas.VerificaBanco();
 
             if (registroBanco == false)
             {
@@ -69,8 +71,32 @@ namespace AppFerramentas
 
         private void btVerificarFerramenta_Clicked(object sender, EventArgs e)
         {
+            btCadastrarFerramenta.IsVisible = false;
+            btVerificarFerramenta.IsVisible = false;
 
+            slConFin.IsVisible = true;
+            btConfirmar.IsVisible = true;
+            btFinalizar.IsVisible = true;
+
+            ferramentas = Ferramentas.ListarCodigo();
         }
 
+        private void btConfirmar_Clicked(object sender, EventArgs e)
+        {
+
+            foreach (var i in ferramentas)
+            {
+                if (i.codigo.ToString() == scanResultText.Text.ToString())
+                {
+                    Verificacao.Verifica(i);
+                }
+            }
+            
+        }
+
+        private void btFinalizar_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }
