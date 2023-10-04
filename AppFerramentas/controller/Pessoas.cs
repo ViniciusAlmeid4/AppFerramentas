@@ -132,7 +132,7 @@ namespace AppFerramentas.controller
         {
             List<Pessoa> pes = new List<Pessoa>();
 
-            string sql = "SELECT MAX(id_funcionario) FROM funcionario";
+            string sql = "SELECT MAX(id_funcionario) as id_funcionario FROM funcionario";
 
             using (MySqlConnection con = new MySqlConnection(conn))
             {
@@ -151,7 +151,7 @@ namespace AppFerramentas.controller
 
                             Pessoa pesoa = new Pessoa()
                             {
-                                id_funcionario = Convert.ToInt32(reader.GetString(0))
+                                id_funcionario = (int)reader["id_funcionario"]
                             };
 
                             pes.Add(pesoa);
