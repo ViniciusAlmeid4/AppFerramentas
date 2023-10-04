@@ -147,6 +147,7 @@ namespace AppFerramentas.controller
 
                         while (reader.Read())
                         {
+                            // !!!!!!!! crashou nessa parte !!!!!!!!
 
                             Pessoa pesoa = new Pessoa()
                             {
