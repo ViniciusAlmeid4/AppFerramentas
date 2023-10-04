@@ -10,8 +10,6 @@ namespace AppFerramentas
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageLeitor : ContentPage
     {
-        public List<Ferramenta> ferramentas;
-        public List<Pessoa> pessoa;
 
         public PageLeitor()
         {
@@ -70,7 +68,13 @@ namespace AppFerramentas
 
         }
 
-        private void btVerificarFerramenta_Clicked(object sender, EventArgs e)
+
+		public List<Ferramenta> ferramentas;
+		public List<Pessoa> pessoa;
+        public List<Ferramenta> verificadas;
+
+
+		private void btVerificarFerramenta_Clicked(object sender, EventArgs e)
         {
             btCadastrarFerramenta.IsVisible = false;
             btVerificarFerramenta.IsVisible = false;
@@ -79,7 +83,8 @@ namespace AppFerramentas
             btConfirmar.IsVisible = true;
             btFinalizar.IsVisible = true;
 
-            ferramentas = Ferramentas.ListarCodigo();
+            ferramentas = Ferramentas.ListarFerramentas();
+            pessoa = Pessoas.ListarIdPessoa();
         }
 
         private void btConfirmar_Clicked(object sender, EventArgs e)
@@ -89,14 +94,14 @@ namespace AppFerramentas
                 if (i.codigo.ToString() == scanResultText.Text.ToString())
                 {
                     Verificacao.Verifica(i.id_ferramenta.ToString());
-                }
+					ferramentas.Remove(i);
+				}
             }
-            
         }
 
         private void btFinalizar_Clicked(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

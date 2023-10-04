@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Text;
 using AppFerramentas.Models;
 using MySqlConnector;
@@ -66,8 +67,9 @@ namespace AppFerramentas.controller
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, con))
                 {
-                    cmd.Parameters.Add("@id_func", MySqlDbType.Int32).Value = pessoa;
+                    cmd.Parameters.Add("@id_func", MySqlDbType.Int32).Value = pessoa.Last().id_funcionario;
                     cmd.Parameters.Add("@id_ferra", MySqlDbType.Int32).Value = id_ferramenta;
+                    cmd.Parameters.Add("@data_vericacao", DbType.DateTime).Value = DateTime.Now;
                     cmd.CommandType = CommandType.Text;
                     cmd.ExecuteNonQuery();
                 }
