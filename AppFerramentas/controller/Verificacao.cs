@@ -58,7 +58,7 @@ namespace AppFerramentas.controller
         public static void Verifica(string id_ferramenta) // passar o i de algm jeito
         {
             var pessoa = Pessoas.ListarIdPessoa();
-            string sql = "INSERT INTO verificacao(id_func, id_ferra) VALUES (@id_func, @id_ferra, @gerente, @cargo)";
+            string sql = "INSERT INTO verificacao(id_func, id_ferra) VALUES (@id_func, @id_ferra)";
 
             using (MySqlConnection con = new MySqlConnection(conn))
             {
@@ -66,7 +66,7 @@ namespace AppFerramentas.controller
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, con))
                 {
-                    cmd.Parameters.Add("@id_func", MySqlDbType.Int32).Value = Convert.ToInt32(pessoa);
+                    cmd.Parameters.Add("@id_func", MySqlDbType.Int32).Value = pessoa;
                     cmd.Parameters.Add("@id_ferra", MySqlDbType.Int32).Value = id_ferramenta;
                     cmd.CommandType = CommandType.Text;
                     cmd.ExecuteNonQuery();
