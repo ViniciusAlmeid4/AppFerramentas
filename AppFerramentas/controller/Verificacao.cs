@@ -39,7 +39,7 @@ namespace AppFerramentas.controller
                                 id_verificacao = reader.GetInt32(0),
                                 nome_funcionario = reader.GetString(1),
                                 nome_ferramenta = reader.GetString(2),
-                                data_verificacao = reader.GetDateTime(3).ToString(),
+                                data_verificacao = reader.GetString(3),
                                 // set time_zone = 'America/Sao_Paulo';
                             };
 
@@ -58,8 +58,8 @@ namespace AppFerramentas.controller
 
         public static void Verifica(string id_ferramenta) // passar o i de algm jeito
         {
-            var pessoa = Pessoas.ListarIdPessoa();
-            string sql = "INSERT INTO verificacao(id_func, id_ferra) VALUES (@id_func, @id_ferra)";
+            var pessoa = Pessoas.ListarFuncionario();
+            string sql = "INSERT INTO verificacao(id_func, id_ferra, data_verificacao) VALUES (@id_func, @id_ferra, curDate())";
 
             using (MySqlConnection con = new MySqlConnection(conn))
             {
@@ -69,13 +69,31 @@ namespace AppFerramentas.controller
                 {
                     cmd.Parameters.Add("@id_func", MySqlDbType.Int32).Value = pessoa.Last().id_funcionario;
                     cmd.Parameters.Add("@id_ferra", MySqlDbType.Int32).Value = id_ferramenta;
-                    cmd.Parameters.Add("@data_vericacao", DbType.DateTime).Value = DateTime.Now;
-                    cmd.CommandType = CommandType.Text;
+					//cmd.Parameters.Add("@data_vericacao", DbType.Date).Value = DateTime.Now;
+					cmd.CommandType = CommandType.Text;
                     cmd.ExecuteNonQuery();
                 }
 
                 con.Close();
             }
         }
+
+        public static void Truncate()
+        {
+			string sql = "TRUCATE TABLE verificacao";
+
+			using (MySqlConnection con = new MySqlConnection(conn))
+			{
+				con.Open();
+
+				using (MySqlCommand cmd = new MySqlCommand(sql, con))
+				{
+					cmd.CommandType = CommandType.Text;
+					cmd.ExecuteNonQuery();
+				}
+
+				con.Close();
+			}
+		}
     }
 }

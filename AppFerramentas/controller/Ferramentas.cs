@@ -77,7 +77,7 @@ namespace AppFerramentas.controller
 
         public static void AtualizarFerramenta(Ferramenta ferramenta)
         {
-            string sql = "UPDATE ferramenta SET tipo=@tipo, nome_ferramenta=@nome_ferramenta, codigo=@codigo WHERE id_ferramenta=@id";
+            string sql = "UPDATE ferramenta SET tipo=@tipo, nome_ferramenta=@nome_ferramenta WHERE id_ferramenta=@id_ferramenta";
 
             try
             {
@@ -89,7 +89,6 @@ namespace AppFerramentas.controller
                     {
                         cmd.Parameters.Add("@tipo", MySqlDbType.VarChar).Value = ferramenta.tipo;
                         cmd.Parameters.Add("@nome_ferramenta", MySqlDbType.VarChar).Value = ferramenta.nome_ferramenta;
-                        cmd.Parameters.Add("@codigo", MySqlDbType.VarChar).Value = ferramenta.codigo;
                         cmd.Parameters.Add("@id_ferramenta", MySqlDbType.Int32).Value = ferramenta.id_ferramenta;
                         cmd.CommandType = CommandType.Text;
                         cmd.ExecuteNonQuery();
@@ -129,43 +128,6 @@ namespace AppFerramentas.controller
                 throw new Exception(ex.Message);
             }
         }
-        public static List<Ferramenta> ListarCodigo()
-        {
-            List<Ferramenta> fer = new List<Ferramenta>();
-
-            string sql = "SELECT codigo,id_ferramenta FROM ferramenta";
-
-            using (MySqlConnection con = new MySqlConnection(conn))
-            {
-
-                con.Open();
-
-                using (MySqlCommand cmd = new MySqlCommand(sql, con))
-                {
-
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
-                    {
-
-                        while (reader.Read())
-                        {
-
-                            Ferramenta ferra = new Ferramenta()
-                            {
-                                codigo = reader.GetString(0),
-                                id_ferramenta = reader.GetInt32(1)
-                            };
-
-                            fer.Add(ferra);
-                        }
-
-                    }
-
-                }
-
-                con.Close();
-
-                return fer;
-            }
-        }
+        
     }
 }

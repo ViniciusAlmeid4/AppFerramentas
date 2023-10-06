@@ -8,7 +8,7 @@
             <ScrollView>
                 <StackLayout>
                     <Label Text="Ferramentas:" FontAttributes="Bold" FontSize="40" HorizontalOptions="Center"/>
-                    <ListView x:Name="lsvFerramentas" ItemSelected="lsvFerramentas_ItemSelected">
+                    <ListView x:Name="lsvFerramentas" ItemSelected="lsvFerramentas_ItemSelected" RowHeight="90">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>

@@ -70,8 +70,7 @@ namespace AppFerramentas
 
 
 		public List<Ferramenta> ferramentas;
-		public List<Pessoa> pessoa;
-        public List<Ferramenta> verificadas;
+        public List<Ferramenta> naoVerificadas;
 
 
 		private void btVerificarFerramenta_Clicked(object sender, EventArgs e)
@@ -84,24 +83,50 @@ namespace AppFerramentas
             btFinalizar.IsVisible = true;
 
             ferramentas = Ferramentas.ListarFerramentas();
-            pessoa = Pessoas.ListarIdPessoa();
+            naoVerificadas = ferramentas;
         }
 
         private void btConfirmar_Clicked(object sender, EventArgs e)
         {
-            foreach (var i in ferramentas)
+
+            foreach (var i in ferramentas.ToArray())
             {
+
+                if (naoVerificadas == null)
+                {
+
+                    DisplayAlert("Tudo verificado","Aperte em finalizar para terminar as verificações","OK");
+                    break;
+
+                }
+
                 if (i.codigo.ToString() == scanResultText.Text.ToString())
                 {
+
                     Verificacao.Verifica(i.id_ferramenta.ToString());
-					ferramentas.Remove(i);
+
+                    try
+                    {
+
+                        naoVerificadas.Remove(i);
+
+                    }
+                    catch (Exception ex)
+                    {
+
+                        DisplayAlert("Erro ao verificar", "Erro:" + ex.ToString(), "OK");
+
+                    }
+					
 				}
+
             }
+
         }
 
         private void btFinalizar_Clicked(object sender, EventArgs e)
         {
-            
+            //Verificacao.Truncate();
         }
     }
 }

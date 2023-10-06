@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppFerramentas.PageUpDelFerramentas" Title="Atualizar // Apagar">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="txtId" IsVisible="false" Text="{Binding id_ferramenta, Mode=TwoWay}"/>
+            <Label Text="Nome ferramenta" FontSize="Medium" FontAttributes="Bold"/>
+            <Entry x:Name="txtnome_ferramenta" Text="{Binding nome_ferramenta, Mode=TwoWay}"/>
+            <Label Text="Tipo" FontSize="Medium" FontAttributes="Bold"/>
+            <Entry x:Name="txtTipo" Text="{Binding tipo, Mode=TwoWay}"/>
+            <Button Text="Atualizar" Background="white" FontAttributes="Bold" x:Name="btnAtualizar" Clicked="btnAtualizar_Clicked"/>
+            <Button Text="Apagar" Background="black" TextColor="White" FontAttributes="Bold" x:Name="btnApagar" Clicked="btnApagar_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

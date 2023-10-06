@@ -33,6 +33,5 @@ namespace AppFerramentas
             pageEdicaoPessoa.pessoa = pessoa;
             Navigation.PushAsync(pageEdicaoPessoa);
         }
-
-    }
+	}
 }

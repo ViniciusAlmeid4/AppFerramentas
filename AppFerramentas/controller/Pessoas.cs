@@ -77,7 +77,7 @@ namespace AppFerramentas.controller
         }
         public static void ExcluirFuncionario()
         {
-            string sql = "DELETE FROM TABLE funcionario WHERE id_funcionario=(SELECT MAX(id_funcionario) FROM funcionario)";
+            string sql = "DELETE FROM TABLE funcionario WHERE id_funcionario = (SELECT MAX(id_funcionario) FROM funcionario)";
 
             try
             {
@@ -128,43 +128,6 @@ namespace AppFerramentas.controller
                 return false;
             }
         }
-        public static List<Pessoa> ListarIdPessoa()
-        {
-            List<Pessoa> pes = new List<Pessoa>();
-
-            string sql = "SELECT MAX(id_funcionario) as id_funcionario FROM funcionario";
-
-            using (MySqlConnection con = new MySqlConnection(conn))
-            {
-
-                con.Open();
-
-                using (MySqlCommand cmd = new MySqlCommand(sql, con))
-                {
-
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
-                    {
-
-                        while (reader.Read())
-                        {
-                            // !!!!!!!! crashou nessa parte !!!!!!!!
-
-                            Pessoa pesoa = new Pessoa()
-                            {
-                                id_funcionario = (int)reader["id_funcionario"]
-                            };
-
-                            pes.Add(pesoa);
-                        }
-
-                    }
-
-                }
-
-                con.Close();
-
-                return pes;
-            }
-        }
+        
     }
 }
