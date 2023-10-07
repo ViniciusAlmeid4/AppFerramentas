@@ -56,7 +56,11 @@ namespace AppFerramentas.controller
 
         public static void InserirFerramenta(string tipo, string nome_ferramenta, string codigo)
         {
-            string sql = "INSERT INTO ferramenta(tipo,nome_ferramenta,codigo) VALUES (@tipo,@nome_ferramenta, @codigo)";
+            string sql = "INSERT INTO ferramenta(tipo,nome_ferramenta,codigo,id_funcionario) VALUES (@tipo,@nome_ferramenta, @codigo, @id_funcionario)";
+
+            List<Pessoa> pessoa = new List<Pessoa>();
+
+            pessoa = Pessoas.ListarFuncionario();
 
             using (MySqlConnection con = new MySqlConnection(conn))
             {
@@ -67,6 +71,7 @@ namespace AppFerramentas.controller
                     cmd.Parameters.Add("@tipo", MySqlDbType.VarChar).Value = tipo;
                     cmd.Parameters.Add("@nome_ferramenta", MySqlDbType.VarChar).Value = nome_ferramenta;
                     cmd.Parameters.Add("@codigo", MySqlDbType.VarChar).Value = codigo;
+                    cmd.Parameters.Add("@id_funcionario", MySqlDbType.Int32).Value = pessoa[0].id_funcionario;
                     cmd.CommandType = CommandType.Text;
                     cmd.ExecuteNonQuery();
                 }

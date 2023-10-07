@@ -84,6 +84,8 @@ namespace AppFerramentas
 
             ferramentas = Ferramentas.ListarFerramentas();
             naoVerificadas = ferramentas;
+
+
         }
 
         private void btConfirmar_Clicked(object sender, EventArgs e)
@@ -107,7 +109,7 @@ namespace AppFerramentas
 
                     try
                     {
-
+                        
                         naoVerificadas.Remove(i);
 
                     }
@@ -126,7 +128,7 @@ namespace AppFerramentas
 
         private void btFinalizar_Clicked(object sender, EventArgs e)
         {
-            //Verificacao.Truncate();
+            
         }
     }
 }
