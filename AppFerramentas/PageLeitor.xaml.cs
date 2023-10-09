@@ -112,6 +112,8 @@ namespace AppFerramentas
                         
                         naoVerificadas.Remove(i);
 
+                        scanResultText.Text = "";
+
                     }
                     catch (Exception ex)
                     {
@@ -128,7 +130,34 @@ namespace AppFerramentas
 
         private void btFinalizar_Clicked(object sender, EventArgs e)
         {
-            
+
+            if (naoVerificadas.Count == 0)
+            {
+                DisplayAlert("Tudo Certo!!", "Todas as ferramentas foram verificadas!!", "OK");
+            }
+            else
+            {
+                string listaFerra = "", listaNVer = "";
+                foreach(var i in ferramentas)
+                {
+                    listaFerra += "- " + i.nome_ferramenta.ToString();
+                }
+                foreach (var item in naoVerificadas)
+                {
+                    listaNVer += "- " + item.nome_ferramenta.ToString();
+                }
+                DisplayAlert("Ops!", "Da sua lista de ferramentas: " + listaFerra + "\n As seguintes não foram verificadas: " + listaNVer, "OK");
+            }
+
+            btCadastrarFerramenta.IsVisible = true;
+            btVerificarFerramenta.IsVisible = true;
+
+            slConFin.IsVisible = false;
+            btConfirmar.IsVisible = false;
+            btFinalizar.IsVisible = false;
+
+            ferramentas = null;
+            naoVerificadas = null;
         }
     }
 }

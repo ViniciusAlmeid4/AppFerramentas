@@ -134,5 +134,35 @@ namespace AppFerramentas.controller
             }
         }
         
+        public static bool verificaRegistro(string qrCode)
+        {
+            string sql = "SELECT * FROM ferramenta WHERE codigo = " + qrCode;
+
+            using (MySqlConnection con = new MySqlConnection(conn))
+            {
+                con.Open();
+
+                using (MySqlCommand cmd = new MySqlCommand(sql, con))
+                {
+
+                    cmd.ExecuteNonQuery();
+                
+                    if(cmd.ExecuteScalar() != null)
+                    {
+
+                        con.Close();
+                        return true;
+
+                    }
+
+                    
+                }
+
+                con.Close();
+                return false;
+
+            }
+
+        }
     }
 }

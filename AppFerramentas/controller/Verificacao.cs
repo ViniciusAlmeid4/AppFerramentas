@@ -78,22 +78,5 @@ namespace AppFerramentas.controller
             }
         }
 
-        public static void Truncate()
-        {
-			string sql = "TRUCATE TABLE verificacao";
-
-			using (MySqlConnection con = new MySqlConnection(conn))
-			{
-				con.Open();
-
-				using (MySqlCommand cmd = new MySqlCommand(sql, con))
-				{
-					cmd.CommandType = CommandType.Text;
-					cmd.ExecuteNonQuery();
-				}
-
-				con.Close();
-			}
-		}
     }
 }
