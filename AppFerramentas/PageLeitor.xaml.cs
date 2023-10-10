@@ -37,13 +37,7 @@ namespace AppFerramentas
                 if (result.Text != "")
                 {
                     scanResultText.Text = result.Text + " (type: " + result.BarcodeFormat.ToString() + ")";
-                    btCadastrarFerramenta.IsEnabled = true;
-                    btCadastrarFerramenta.BackgroundColor = Color.Gray;
-                }
-                else
-                {
-                    btCadastrarFerramenta.IsEnabled = false;
-                    btCadastrarFerramenta.BackgroundColor = Color.BlanchedAlmond;
+                    scanResultText.IsVisible = true;
                 }
 
             });
@@ -66,7 +60,7 @@ namespace AppFerramentas
 				    {
 					    await DisplayAlert("Ferramenta já cadastrada!!", "Esse código já aparece nos registros das ferramentas", "OK");
 
-                        scanResultText.Text = null;
+                        scanResultText.TextColor = Color.Yellow;
 				    }
 				    else
 				    {
@@ -136,7 +130,7 @@ namespace AppFerramentas
 
                                 naoVerificadas.Remove(i);
 
-                                scanResultText.Text = null;
+                                scanResultText.TextColor = Color.Green;
                                 return;
                             }
                             catch (Exception ex)
@@ -151,7 +145,7 @@ namespace AppFerramentas
 
                     DisplayAlert("Essa já foi", "Essa ferramenta já foi verificada!!", "OK");
 
-					scanResultText.Text = null;
+					scanResultText.TextColor = Color.Yellow;
 
 					return;
                 }
@@ -160,7 +154,7 @@ namespace AppFerramentas
 
             DisplayAlert("Codigo não cadastrado", "Esse codigo não foi encontrado em suas ferramentas!", "OK");
 			
-            scanResultText.Text = null;
+            scanResultText.TextColor = Color.Red;
 
 		}
 
@@ -180,6 +174,9 @@ namespace AppFerramentas
                 }
                 DisplayAlert("Ops!", "As seguintes ferramentas não foram verificadas: " + listaNVer, "OK");
             }
+
+            scanResultText.Text = null;
+            scanResultText.IsVisible = false;
 
             btCadastrarFerramenta.IsVisible = true;
             btVerificarFerramenta.IsVisible = true;

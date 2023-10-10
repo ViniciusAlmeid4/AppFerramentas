@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppFerramentas.MainPage">
+             x:Class="AppFerramentas.MainPage" Title="Menu Inicial">
 
-    <StackLayout>
-        <Button x:Name="btnLeitor" Clicked="btnLeitor_Clicked" Text="Leitor"/>
-        <Button x:Name="btnListaFerramentas" Clicked="btnListaFerramentas_Clicked" Text="Ferramentas"/>
-        <Button x:Name="btnMeusDados" Clicked="btnMeusDados_Clicked" Text="Meus Dados"/>
-        <Button x:Name="btnListaVerificados" Clicked="btnListaVerificados_Clicked" Text="Lista de verificação"/>
+    <StackLayout Margin="10,80">
+        <Button x:Name="btnLeitor" Clicked="btnLeitor_Clicked" Text="Leitor" VerticalOptions="StartAndExpand" HeightRequest="75"/>
+        <Button x:Name="btnListaFerramentas" Clicked="btnListaFerramentas_Clicked" Text="Ferramentas" VerticalOptions="StartAndExpand" HeightRequest="75"/>
+        <Button x:Name="btnMeusDados" Clicked="btnMeusDados_Clicked" Text="Meus Dados" VerticalOptions="StartAndExpand" HeightRequest="75"/>
+        <Button x:Name="btnListaVerificados" Clicked="btnListaVerificados_Clicked" Text="Lista de verificação" VerticalOptions="StartAndExpand" HeightRequest="75"/>
     </StackLayout>
 
 </ContentPage>
