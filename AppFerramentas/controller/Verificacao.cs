@@ -17,9 +17,9 @@ namespace AppFerramentas.controller
         {
             List<Verificados> ver = new List<Verificados>();
 
-            string sql = "SELECT * FROM verificacao";//"SELECT v.id_verificacao,fc.nome_funcionario,fr.nome_ferramenta,v.data_verificacao FROM `verificacao` v JOIN `ferramenta` fr ON v.id_ferra = fr.id_ferramenta JOIN `funcionario` fc ON v.id_func = fc.id_funcionario WHERE data_verificacao < CURRENT_TIMESTAMP;";
+            string sql = "SELECT v.id_verificacao,fc.nome_funcionario,fr.nome_ferramenta,v.data_verificacao FROM `verificacao` v JOIN `ferramenta` fr ON v.id_ferra = fr.id_ferramenta JOIN `funcionario` fc ON v.id_func = fc.id_funcionario;";
 
-            using (MySqlConnection con = new MySqlConnection(conn))
+			using (MySqlConnection con = new MySqlConnection(conn))
             {
 
                 con.Open();
@@ -39,7 +39,7 @@ namespace AppFerramentas.controller
                                 id_verificacao = reader.GetInt32(0),
                                 nome_funcionario = reader.GetString(1),
                                 nome_ferramenta = reader.GetString(2),
-                                data_verificacao = reader.GetString(3),
+                                data_verificacao = reader.GetDateTime(3).ToString("dd/MM/yyyy")
                                 // set time_zone = 'America/Sao_Paulo';
                             };
 

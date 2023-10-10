@@ -14,6 +14,8 @@
                                         <StackLayout Orientation="Vertical">
                                             <StackLayout Orientation="Horizontal" Margin="5,15,5,15">
                                                 <Label Text="{Binding id_verificacao}"/>
+                                                <Label Text="{Binding nome_ferramenta}"/>
+                                                <Label Text="{Binding nome_funcionario}"/>
                                                 <Label Text="{Binding data_verificacao}"/>
                                             </StackLayout>
                                         </StackLayout>

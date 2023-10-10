@@ -136,7 +136,7 @@ namespace AppFerramentas.controller
         
         public static bool verificaRegistro(string qrCode)
         {
-            string sql = "SELECT * FROM ferramenta WHERE codigo = " + qrCode;
+            string sql = "SELECT * FROM ferramenta WHERE codigo = @codigo";
 
             using (MySqlConnection con = new MySqlConnection(conn))
             {
@@ -145,7 +145,9 @@ namespace AppFerramentas.controller
                 using (MySqlCommand cmd = new MySqlCommand(sql, con))
                 {
 
-                    cmd.ExecuteNonQuery();
+                    cmd.Parameters.Add("@codigo", MySqlDbType.String).Value = qrCode;
+					cmd.CommandType = CommandType.Text;
+					cmd.ExecuteNonQuery();
                 
                     if(cmd.ExecuteScalar() != null)
                     {

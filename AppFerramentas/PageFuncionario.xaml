@@ -20,20 +20,20 @@
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                                    <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
-                                        <StackLayout  Margin="0,40,0,82">
+                                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                        <StackLayout  Margin="0,40,0,82" Orientation="Horizontal">
                                             <Label Text="Nome: " FontAttributes="Bold" FontSize="Medium"/>
                                             <Label x:Name="txtNomeUsuario" Text="{Binding nome_funcionario}" FontAttributes="Bold" FontSize="Medium" />
                                         </StackLayout>
-                                        <StackLayout  Margin="0,0,0,82">
+                                        <StackLayout  Margin="0,0,0,82" Orientation="Horizontal">
                                             <Label Text="Setor: " FontAttributes="Bold" FontSize="Medium"/>
                                             <Label x:Name="txtSetor" Text="{Binding setor}" FontAttributes="Bold" FontSize="Medium" />
                                         </StackLayout>
-                                        <StackLayout  Margin="0,0,0,82">
+                                        <StackLayout  Margin="0,0,0,82" Orientation="Horizontal">
                                             <Label Text="Gerente: " FontAttributes="Bold" FontSize="Medium"/>
                                             <Label x:Name="txtGerente" Text="{Binding gerente}" FontAttributes="Bold" FontSize="Medium" />
                                         </StackLayout>
-                                        <StackLayout  Margin="0,0,0,82">
+                                        <StackLayout  Margin="0,0,0,82" Orientation="Horizontal">
                                             <Label Text="Cargo: " FontAttributes="Bold" FontSize="Medium"/>
                                             <Label x:Name="txtCargo" Text="{Binding cargo}" FontAttributes="Bold" FontSize="Medium" />
                                         </StackLayout>

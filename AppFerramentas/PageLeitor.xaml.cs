@@ -2,7 +2,9 @@
 using AppFerramentas.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.Xaml;
 
 namespace AppFerramentas
@@ -51,18 +53,38 @@ namespace AppFerramentas
 
         async void btCadastrarFerramenta_Clicked(object sender, EventArgs e)
         {
-            var codQR = new CodigoDeBarras
+            try
             {
-                dados = scanResultText.Text.ToString()
-            };
+                var codQR = new CodigoDeBarras
+                {
+                    dados = scanResultText.Text.ToString()
+                };
+                if (codQR.dados != "")
+                {
+                
+                    if (Ferramentas.verificaRegistro(codQR.dados))
+				    {
+					    await DisplayAlert("Ferramenta já cadastrada!!", "Esse código já aparece nos registros das ferramentas", "OK");
 
-            if (codQR.dados != "")
+                        scanResultText.Text = null;
+				    }
+				    else
+				    {
+                        var enviar = new PageFerramentasCadastro();
+
+						scanResultText.Text = null;
+
+						enviar.BindingContext = codQR;
+                        await Navigation.PushAsync(enviar);
+
+					}
+				
+                }
+            }
+            catch (Exception ex)
             {
 
-                var enviar = new PageFerramentasCadastro();
-
-                enviar.BindingContext = codQR;
-                await Navigation.PushAsync(enviar);
+                await DisplayAlert("OPA!", "Valor inválido no sensor", "OK");
 
             }
 
@@ -90,11 +112,11 @@ namespace AppFerramentas
 
         private void btConfirmar_Clicked(object sender, EventArgs e)
         {
-
+            
             foreach (var i in ferramentas.ToArray())
             {
 
-                if (naoVerificadas == null)
+                if (naoVerificadas.Count == 0)
                 {
 
                     DisplayAlert("Tudo verificado","Aperte em finalizar para terminar as verificações","OK");
@@ -104,29 +126,43 @@ namespace AppFerramentas
 
                 if (i.codigo.ToString() == scanResultText.Text.ToString())
                 {
-
-                    Verificacao.Verifica(i.id_ferramenta.ToString());
-
-                    try
+                    foreach (var item in naoVerificadas)
                     {
-                        
-                        naoVerificadas.Remove(i);
+                        if(item.codigo.ToString() == scanResultText.Text.ToString())
+                        {
+                            try
+                            {
+                                Verificacao.Verifica(i.id_ferramenta.ToString());
 
-                        scanResultText.Text = "";
+                                naoVerificadas.Remove(i);
 
+                                scanResultText.Text = null;
+                                return;
+                            }
+                            catch (Exception ex)
+                            {
+                                DisplayAlert("Erro ao verificar", "Erro:" + ex.ToString(), "OK");
+
+								scanResultText.Text = null;
+								return;
+                            }
+                        }
                     }
-                    catch (Exception ex)
-                    {
 
-                        DisplayAlert("Erro ao verificar", "Erro:" + ex.ToString(), "OK");
+                    DisplayAlert("Essa já foi", "Essa ferramenta já foi verificada!!", "OK");
 
-                    }
-					
-				}
+					scanResultText.Text = null;
+
+					return;
+                }
 
             }
 
-        }
+            DisplayAlert("Codigo não cadastrado", "Esse codigo não foi encontrado em suas ferramentas!", "OK");
+			
+            scanResultText.Text = null;
+
+		}
 
         private void btFinalizar_Clicked(object sender, EventArgs e)
         {
@@ -137,16 +173,12 @@ namespace AppFerramentas
             }
             else
             {
-                string listaFerra = "", listaNVer = "";
-                foreach(var i in ferramentas)
-                {
-                    listaFerra += "- " + i.nome_ferramenta.ToString();
-                }
+                string listaNVer = "";
                 foreach (var item in naoVerificadas)
                 {
-                    listaNVer += "- " + item.nome_ferramenta.ToString();
+                    listaNVer += "\n- " + item.nome_ferramenta.ToString();
                 }
-                DisplayAlert("Ops!", "Da sua lista de ferramentas: " + listaFerra + "\n As seguintes não foram verificadas: " + listaNVer, "OK");
+                DisplayAlert("Ops!", "As seguintes ferramentas não foram verificadas: " + listaNVer, "OK");
             }
 
             btCadastrarFerramenta.IsVisible = true;

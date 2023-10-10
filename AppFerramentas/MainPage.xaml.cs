@@ -13,7 +13,7 @@ namespace AppFerramentas
         {
             InitializeComponent();
 
-            var registroBanco = true;//Pessoas.VerificaBanco();
+            var registroBanco = Pessoas.VerificaBanco();
 
             if (registroBanco == false)
             {
