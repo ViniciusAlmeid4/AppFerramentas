@@ -54,6 +54,28 @@ namespace AppFerramentas.controller
             }
         }
 
+        public static void AtualizaFuncionario(string nome_funcionario, string setor, string gerente, string cargo)
+        {
+            string sql = "UPDATE funcionario SET nome_funcionario=@nome_funcionario, setor=@setor, gerente=@gerente, cargo=@cargo WHERE id_funcionario=1)";
+
+            using (MySqlConnection con = new MySqlConnection(conn))
+            {
+                con.Open();
+
+                using (MySqlCommand cmd = new MySqlCommand(sql, con))
+                {
+                    cmd.Parameters.Add("@nome_funcionario", MySqlDbType.VarChar).Value = nome_funcionario;
+                    cmd.Parameters.Add("@setor", MySqlDbType.VarChar).Value = setor;
+                    cmd.Parameters.Add("@gerente", MySqlDbType.VarChar).Value = gerente;
+                    cmd.Parameters.Add("@cargo", MySqlDbType.VarChar).Value = cargo;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.ExecuteNonQuery();
+                }
+
+                con.Close();
+            }
+        }
+
         public static void InserirFuncionario(string nome_funcionario, string setor, string gerente, string cargo)
         {
             string sql = "INSERT INTO funcionario(nome_funcionario, setor, gerente, cargo) VALUES (@nome_funcionario, @setor, @gerente, @cargo)";

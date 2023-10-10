@@ -30,7 +30,16 @@ namespace AppFerramentas
 
         private void btnAtualizar_Clicked(object sender, EventArgs e)
         {
+            try
+            {
+                Pessoas.InserirFuncionario(txtNomeFuncionario.Text, txtSetor.Text, txtGerente.Text, txtCargo.Text);
+                DisplayAlert("Dados Atualizados", "Os dados foram alterados com sucesso!", "OK");
+            }
+            catch
+            {
 
+            }
+            
         }
         
         async private void btnExcluir_Clicked(object sender, EventArgs e)
