@@ -6,19 +6,17 @@
         <StackLayout>
             <ScrollView>
                 <StackLayout>
-                    <ListView x:Name="lsvVerificados" ItemSelected="lsvVerificados_ItemSelected">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
+                    <ListView x:Name="lsvVerificados" ItemSelected="lsvVerificados_ItemSelected" RowHeight="75">
+                        <ListView.ItemTemplate >
+                            <DataTemplate >
                                 <ViewCell>
-                                    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                                        <StackLayout Orientation="Vertical">
-                                            <StackLayout Orientation="Horizontal" Margin="5,15,5,15">
-                                                <Label Text="{Binding id_verificacao}"/>
-                                                <Label Text="{Binding nome_ferramenta}"/>
-                                                <Label Text="{Binding nome_funcionario}"/>
-                                                <Label Text="{Binding data_verificacao}"/>
-                                            </StackLayout>
+                                    <StackLayout Orientation="Vertical">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding id_verificacao, StringFormat = '{0} -'}"/>
+                                            <Label Text="{Binding nome_ferramenta, StringFormat = '{0}'}"/>
                                         </StackLayout>
+                                        <Label Text="{Binding nome_funcionario, StringFormat = 'Feita por: {0}'}"/>
+                                        <Label Text="{Binding data_verificacao, StringFormat = 'Data: {0}'}"/>
                                     </StackLayout>
                                 </ViewCell>
                             </DataTemplate>
@@ -26,10 +24,6 @@
                     </ListView>
                 </StackLayout>
             </ScrollView>
-            
-            <StackLayout>
-                
-            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

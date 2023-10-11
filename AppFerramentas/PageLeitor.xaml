@@ -3,19 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppFerramentas.PageLeitor" xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms">
     <NavigationPage.TitleView>
-        <StackLayout Orientation="Horizontal" >
+        <StackLayout Orientation="Horizontal">
             <Label Text="Scanner - Código de Barras" FontAttributes="Bold" TextColor="White" FontSize="Large"/>
         </StackLayout>
     </NavigationPage.TitleView>
     <ContentPage.Content>
-        <StackLayout>
-            <Label x:Name="scanResultText" BackgroundColor="LightGray" IsVisible="false" HeightRequest="40" Margin="0,6,0,0"/>
+        <StackLayout Spacing="0">
+            <Label x:Name="scanResultText" IsVisible="false" HeightRequest="40" BackgroundColor="#ff9e22"/>
             <zxing:ZXingScannerView IsScanning="True" OnScanResult="ZXingScannerView_OnScanResult"/>
-            <Button x:Name="btCadastrarFerramenta" Text="Cadastrar Ferramenta" Clicked="btCadastrarFerramenta_Clicked"/>
-            <Button x:Name="btVerificarFerramenta" Text="Verificar" Clicked="btVerificarFerramenta_Clicked"/>
+            <Button x:Name="btCadastrarFerramenta" Text="Cadastrar Ferramenta" Clicked="btCadastrarFerramenta_Clicked" HeightRequest="75" Margin="1"/>
+            <Button x:Name="btVerificarFerramenta" Text="Verificar" Clicked="btVerificarFerramenta_Clicked" HeightRequest="75" BorderColor="Black"/>
             <StackLayout x:Name="slConFin" IsVisible="false" Orientation="Horizontal" Margin="0,5,0,10">
-                <Button x:Name="btConfirmar" Text="Confirmar" Clicked="btConfirmar_Clicked" IsVisible="false" HorizontalOptions="FillAndExpand" FontAttributes="Bold" FontSize="Medium" HeightRequest="65"/>
-                <Button x:Name="btFinalizar" Text="Finalizar" Clicked="btFinalizar_Clicked" IsVisible="false" HorizontalOptions="FillAndExpand" FontAttributes="Bold" FontSize="Medium"/>
+                <Button x:Name="btConfirmar" Text="Confirmar" Clicked="btConfirmar_Clicked" IsVisible="false" HorizontalOptions="FillAndExpand" FontAttributes="Bold" FontSize="Medium" HeightRequest="85" BackgroundColor="#ff9e22"/>
+                <Button x:Name="btFinalizar" Text="Finalizar" Clicked="btFinalizar_Clicked" IsVisible="false" HorizontalOptions="FillAndExpand" FontAttributes="Bold" FontSize="Medium" HeightRequest="85" BackgroundColor="#ff9e22"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

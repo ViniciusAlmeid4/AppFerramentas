@@ -32,14 +32,15 @@ namespace AppFerramentas
         {
             try
             {
-                Pessoas.InserirFuncionario(txtNomeFuncionario.Text, txtSetor.Text, txtGerente.Text, txtCargo.Text);
+                Pessoas.AtualizaFuncionario(txtNomeFuncionario.Text, txtSetor.Text, txtGerente.Text, txtCargo.Text);
                 DisplayAlert("Dados Atualizados", "Os dados foram alterados com sucesso!", "OK");
-            }
-            catch
-            {
 
             }
-            
+            catch(Exception ex)
+            {
+                DisplayAlert("Erro", ex.ToString(), "OK");
+            }
+            Navigation.PopAsync();
         }
         
         async private void btnExcluir_Clicked(object sender, EventArgs e)

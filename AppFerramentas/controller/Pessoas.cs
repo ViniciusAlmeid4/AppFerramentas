@@ -56,9 +56,9 @@ namespace AppFerramentas.controller
 
         public static void AtualizaFuncionario(string nome_funcionario, string setor, string gerente, string cargo)
         {
-            string sql = "UPDATE funcionario SET nome_funcionario=@nome_funcionario, setor=@setor, gerente=@gerente, cargo=@cargo WHERE id_funcionario=1)";
+            string sql = "UPDATE funcionario SET nome_funcionario=@nome_funcionario, setor=@setor, gerente=@gerente, cargo=@cargo WHERE id_funcionario=1";
 
-            using (MySqlConnection con = new MySqlConnection(conn))
+			using (MySqlConnection con = new MySqlConnection(conn))
             {
                 con.Open();
 

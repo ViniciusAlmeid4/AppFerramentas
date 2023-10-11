@@ -36,8 +36,12 @@ namespace AppFerramentas
 
                 if (result.Text != "")
                 {
-                    scanResultText.Text = result.Text + " (type: " + result.BarcodeFormat.ToString() + ")";
-                    scanResultText.IsVisible = true;
+                    if (result.Text != scanResultText.Text)
+                    {
+                        scanResultText.Text = result.Text + " (type: " + result.BarcodeFormat.ToString() + ")";
+                        scanResultText.IsVisible = true;
+                        scanResultText.TextColor = Color.Black;
+                    }
                 }
 
             });
