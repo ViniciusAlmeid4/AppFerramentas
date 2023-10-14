@@ -46,11 +46,22 @@ namespace AppFerramentas
         async private void btnExcluir_Clicked(object sender, EventArgs e)
         {
 
-            string result = await DisplayPromptAsync("Excluir funcionario", "O funcionário será excluido e o app será fechado, caso queira fazer o cadastro de algum funcionário basta abri-lo novamente!!  Caso queira, digite 'SIM':", "OK");
-            if(result.ToUpper() == "SIM")
+            try
             {
-                Pessoas.ExcluirFuncionario();
-                System.Diagnostics.Process.GetCurrentProcess().Kill();
+
+                string result = await DisplayPromptAsync("Excluir funcionario", "O funcionário será excluido e o app será fechado, caso queira fazer o cadastro de algum funcionário basta abri-lo novamente!!  Caso queira, digite 'SIM':", "OK");
+                if(result.ToUpper() == "SIM")
+                {
+                    Pessoas.ExcluirFuncionario();
+                    System.Diagnostics.Process.GetCurrentProcess().Kill();
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                await DisplayAlert("Erro", "Erro: " + ex.ToString(), "Ok");
+
             }
             
         }

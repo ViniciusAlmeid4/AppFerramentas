@@ -17,6 +17,7 @@ namespace AppFerramentas
 		public Ferramenta ferra;
 		public PageUpDelFerramentas()
 		{
+
 			InitializeComponent();
 
 		}
@@ -29,17 +30,43 @@ namespace AppFerramentas
 
 		private void btnAtualizar_Clicked(object sender, EventArgs e)
 		{
-			Ferramentas.AtualizarFerramenta(ferra);
-			Navigation.PopAsync();
+
+			try
+			{
+
+				Ferramentas.AtualizarFerramenta(ferra);
+				Navigation.PopAsync();
+
+			}
+			catch (Exception ex)
+			{
+
+                DisplayAlert("Erro", "Erro: " + ex.ToString(), "Ok");
+
+            }
+			
         }
 
 		private void btnApagar_Clicked(object sender, EventArgs e)
 		{
-			if (ferra.id_ferramenta != 0)
+
+			try
 			{
-				Ferramentas.ExcluirFerramenta(ferra);
-				Navigation.PopAsync();
+
+				if (ferra.id_ferramenta != 0)
+				{
+					Ferramentas.ExcluirFerramenta(ferra);
+					Navigation.PopAsync();
+				}
+
 			}
+			catch (Exception ex)
+			{
+
+                DisplayAlert("Erro", "Erro: " + ex.ToString(), "Ok");
+
+            }
+			
         }
     }
 }

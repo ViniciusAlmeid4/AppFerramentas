@@ -16,9 +16,22 @@ namespace AppFerramentas
 
         private void btCadastrar_Clicked(object sender, EventArgs e)
         {
-            Ferramentas.InserirFerramenta(txtTipo.Text, txtNomeFerramenta.Text, txtCodigo.Text);
-            DisplayAlert("Cadastro", "Ferramenta cadastrada com sucesso!!", "Ok");
-            Navigation.PopAsync();
+
+            try
+            {
+
+                Ferramentas.InserirFerramenta(txtTipo.Text, txtNomeFerramenta.Text, txtCodigo.Text);
+                DisplayAlert("Cadastro", "Ferramenta cadastrada com sucesso!!", "Ok");
+                Navigation.PopAsync();
+
+            }
+            catch (Exception ex)
+            {
+
+                DisplayAlert("Erro", "Erro: " + ex.ToString(), "Ok");
+
+            }
+            
         }
     }
 }

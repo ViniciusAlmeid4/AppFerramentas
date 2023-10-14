@@ -10,7 +10,9 @@ namespace AppFerramentas
     {
         public PageFuncionario()
         {
+
             InitializeComponent();
+
         }
 
         protected override void OnAppearing()
@@ -21,17 +23,21 @@ namespace AppFerramentas
 
         }
 
-        private async void lsvMaleta_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private void lsvMaleta_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
+
             if (e.SelectedItem != null)
                 NavegarPessoa(e.SelectedItem as Pessoa);
+
         }
 
         void NavegarPessoa(Pessoa pessoa)
         {
+
             PageEdicaoPessoa pageEdicaoPessoa = new PageEdicaoPessoa();
             pageEdicaoPessoa.pessoa = pessoa;
             Navigation.PushAsync(pageEdicaoPessoa);
+
         }
 	}
 }

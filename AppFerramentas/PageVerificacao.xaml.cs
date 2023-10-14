@@ -1,4 +1,5 @@
 ﻿using AppFerramentas.controller;
+using AppFerramentas.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,8 +16,8 @@ namespace AppFerramentas
 
         private void lsvVerificados_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            Navigation.PopAsync();
-            Navigation.PushAsync(new PageLeitor());
+            var item = e.SelectedItem as Verificados;
+            DisplayAlert("", "Ferramenta: \n-" + item.nome_ferramenta + "\n\n Funcionario: \n-" + item.nome_funcionario + "\n\n Data: \n-" + item.data_verificacao, "Sair");
         }
     }
 }
