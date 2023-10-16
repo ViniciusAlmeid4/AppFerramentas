@@ -19,6 +19,11 @@ namespace AppFerramentas.controller
             using (MySqlConnection con = new MySqlConnection(conn))
             {
 
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+
                 con.Open();
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, con))
@@ -60,6 +65,12 @@ namespace AppFerramentas.controller
 
 			using (MySqlConnection con = new MySqlConnection(conn))
             {
+
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+
                 con.Open();
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, con))
@@ -82,6 +93,12 @@ namespace AppFerramentas.controller
 
             using (MySqlConnection con = new MySqlConnection(conn))
             {
+
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+
                 con.Open();
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, con))
@@ -105,6 +122,12 @@ namespace AppFerramentas.controller
             {
                 using (MySqlConnection con = new MySqlConnection(conn))
                 {
+
+                    if (con.State == ConnectionState.Open)
+                    {
+                        con.Close();
+                    }
+
                     con.Open();
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, con))
@@ -127,6 +150,11 @@ namespace AppFerramentas.controller
 
             using (MySqlConnection con = new MySqlConnection(conn))
             {
+
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
 
                 con.Open();
 

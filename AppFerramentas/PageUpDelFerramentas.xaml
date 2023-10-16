@@ -3,14 +3,28 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppFerramentas.PageUpDelFerramentas" Title="Atualizar // Apagar">
     <ContentPage.Content>
-        <StackLayout>
-            <Label x:Name="txtId" IsVisible="false" Text="{Binding id_ferramenta, Mode=TwoWay}"/>
-            <Label Text="Nome ferramenta" FontSize="Medium" FontAttributes="Bold"/>
-            <Entry x:Name="txtnome_ferramenta" Text="{Binding nome_ferramenta, Mode=TwoWay}"/>
-            <Label Text="Tipo" FontSize="Medium" FontAttributes="Bold"/>
-            <Entry x:Name="txtTipo" Text="{Binding tipo, Mode=TwoWay}"/>
-            <Button Text="Atualizar" Background="white" FontAttributes="Bold" x:Name="btnAtualizar" Clicked="btnAtualizar_Clicked"/>
-            <Button Text="Apagar" Background="black" TextColor="White" FontAttributes="Bold" x:Name="btnApagar" Clicked="btnApagar_Clicked"/>
+        <StackLayout Padding="10,20">
+
+            <StackLayout VerticalOptions="StartAndExpand" Spacing="5" HorizontalOptions="Center" Margin="0,0,0,22">
+                <Label VerticalOptions="StartAndExpand" Text="Id ferramenta:" FontSize="Medium" FontAttributes="Bold"/>
+                <Label HorizontalOptions="Center" x:Name="txtId" Text="{Binding id_ferramenta, Mode=TwoWay}" FontAttributes="Bold" FontSize="Body" TextColor="Black"/>
+            </StackLayout>
+
+
+            <StackLayout VerticalOptions="StartAndExpand" Spacing="18">
+                <Label VerticalOptions="StartAndExpand" Text="Nome ferramenta" FontSize="Medium" FontAttributes="Bold"/>
+                <Entry VerticalOptions="StartAndExpand" x:Name="txtnome_ferramenta" Text="{Binding nome_ferramenta, Mode=TwoWay}"/>
+            </StackLayout>
+
+            <StackLayout VerticalOptions="StartAndExpand" Spacing="18">
+                <Label VerticalOptions="StartAndExpand" Text="Tipo" FontSize="Medium" FontAttributes="Bold"/>
+                <Entry VerticalOptions="StartAndExpand" x:Name="txtTipo" Text="{Binding tipo, Mode=TwoWay}"/>
+            </StackLayout>
+
+                    <StackLayout VerticalOptions="EndAndExpand">
+                <Button Text="Atualizar" Background="black" TextColor="White" FontAttributes="Bold" x:Name="btnAtualizar" Clicked="btnAtualizar_Clicked" BorderColor="White" BorderWidth="1"/>
+                <Button Text="Apagar" Background="black" TextColor="White" FontAttributes="Bold" x:Name="btnApagar" Clicked="btnApagar_Clicked" BorderColor="White" BorderWidth="1"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

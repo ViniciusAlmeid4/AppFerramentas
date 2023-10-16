@@ -17,10 +17,14 @@ namespace AppFerramentas.controller
         {
             List<Verificados> ver = new List<Verificados>();
 
-            string sql = "SELECT v.id_verificacao,fc.nome_funcionario,fr.nome_ferramenta,v.data_verificacao FROM `verificacao` v JOIN `ferramenta` fr ON v.id_ferra = fr.id_ferramenta JOIN `funcionario` fc ON v.id_func = fc.id_funcionario;";
+            string sql = "SELECT v.id_verificacao,fc.nome_funcionario,fr.nome_ferramenta,v.data_verificacao FROM `verificacao` v JOIN `ferramenta` fr ON v.id_ferra = fr.id_ferramenta JOIN `funcionario` fc ON v.id_func = fc.id_funcionario ORDER BY v.id_verificacao DESC;";
 
 			using (MySqlConnection con = new MySqlConnection(conn))
             {
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
 
                 con.Open();
 
@@ -63,6 +67,12 @@ namespace AppFerramentas.controller
 
             using (MySqlConnection con = new MySqlConnection(conn))
             {
+
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+
                 con.Open();
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, con))

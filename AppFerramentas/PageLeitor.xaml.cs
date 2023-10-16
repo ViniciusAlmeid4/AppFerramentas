@@ -110,55 +110,64 @@ namespace AppFerramentas
 
         private void btConfirmar_Clicked(object sender, EventArgs e)
         {
-            
-            foreach (var i in ferramentas.ToArray())
+            try
             {
-
-                if (naoVerificadas.Count == 0)
+                foreach (var i in ferramentas.ToArray())
                 {
 
-                    DisplayAlert("Tudo verificado","Aperte em finalizar para terminar as verificações","OK");
-                    break;
-
-                }
-
-                if (i.codigo.ToString() == scanResultText.Text.ToString())
-                {
-                    foreach (var item in naoVerificadas)
+                    if (naoVerificadas.Count == 0)
                     {
-                        if(item.codigo.ToString() == scanResultText.Text.ToString())
-                        {
-                            try
-                            {
-                                Verificacao.Verifica(i.id_ferramenta.ToString());
 
-                                naoVerificadas.Remove(i);
+                        DisplayAlert("Tudo verificado", "Aperte em finalizar para terminar as verificações", "OK");
+                        break;
 
-                                scanResultText.TextColor = Color.Green;
-                                return;
-                            }
-                            catch (Exception ex)
-                            {
-                                DisplayAlert("Erro ao verificar", "Erro:" + ex.ToString(), "OK");
-
-								scanResultText.Text = null;
-								return;
-                            }
-                        }
                     }
 
-                    DisplayAlert("Essa já foi", "Essa ferramenta já foi verificada!!", "OK");
+                    if (i.codigo.ToString() == scanResultText.Text.ToString())
+                    {
+                        foreach (var item in naoVerificadas)
+                        {
+                            if (item.codigo.ToString() == scanResultText.Text.ToString())
+                            {
+                                try
+                                {
+                                    Verificacao.Verifica(i.id_ferramenta.ToString());
 
-					scanResultText.TextColor = Color.Yellow;
+                                    naoVerificadas.Remove(i);
 
-					return;
+                                    scanResultText.TextColor = Color.Green;
+                                    return;
+                                }
+                                catch (Exception ex)
+                                {
+                                    DisplayAlert("Erro ao verificar", "Erro:" + ex.ToString(), "OK");
+
+                                    scanResultText.Text = null;
+                                    return;
+                                }
+                            }
+                        }
+
+                        DisplayAlert("Essa já foi", "Essa ferramenta já foi verificada!!", "OK");
+
+                        scanResultText.TextColor = Color.Yellow;
+
+                        return;
+                    }
+
                 }
 
-            }
+                DisplayAlert("Codigo não cadastrado", "Esse codigo não foi encontrado em suas ferramentas!", "OK");
 
-            DisplayAlert("Codigo não cadastrado", "Esse codigo não foi encontrado em suas ferramentas!", "OK");
-			
-            scanResultText.TextColor = Color.Red;
+                scanResultText.TextColor = Color.Red;
+            }
+            catch (Exception ex)
+            {
+
+                DisplayAlert("Erro ao verificar", "Erro:" + ex.ToString(), "OK");
+
+            }
+            
 
 		}
 
